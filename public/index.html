@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no,email=no">
+<meta name="theme-color" content="#0C2A52">
+<title>香港硕士申请信息库｜学费·截止日期·选校建议</title>
+<script src="config.js"></script>
+<meta name="description" content="香港全部本地院校授课型硕士：输入背景看能申请哪些学校和专业，学费、英语要求、申请截止日期按官网每日核对。">
+<style>
+/* Layout idea: a navy brand band opens the page; a three-way switch (选校建议 / 课程查询 / 院校一览) rides its lower edge
+   and stays pinned while scrolling; below it, white cards on cool paper. Figures (学费, 还剩几天, QS排名) carry the
+   hierarchy. Gold is reserved for "找顾问评估" actions and for QS rank; blue is for using the tool. */
+:root{
+  --bg:#F2F4F8; --surface:#FFFFFF; --ink:#10213A; --muted:#5B6B81; --line:#DBE2EC; --fill:#EEF2F7;
+  --brand:#0C2A52; --on-brand:#FFFFFF; --on-brand-muted:#B9C8DE; --tab-on:#0C2A52; --tab-on-ink:#FFFFFF;
+  --accent:#1A5DC8; --accent-ink:#FFFFFF; --accent-soft:#E4EDFB;
+  --gold:#F2B233; --gold-ink:#2A1C00; --gold-soft:#FFF1CF; --gold-deep:#7A4B00;
+  --urgent:#C4321F; --urgent-soft:#FCE6E1; --open:#17734A; --open-soft:#DDF2E7;
+  --soon:#8A5A00; --soon-soft:#FBEBC6; --closed:#7B8896; --closed-soft:#E8ECF1;
+  --tag-bg:#0C2A52; --tag-ink:#FFFFFF;
+  --shadow:0 1px 2px rgba(16,33,58,.05),0 10px 28px -14px rgba(16,33,58,.2);
+  --body:-apple-system,BlinkMacSystemFont,"PingFang SC","HarmonyOS Sans SC","MiSans","Microsoft YaHei","Noto Sans SC","Segoe UI",sans-serif;
+  --display:var(--body);
+  --fig:"DIN Alternate","Bahnschrift",-apple-system,BlinkMacSystemFont,"PingFang SC","HarmonyOS Sans SC","MiSans","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --r:14px; --r-sm:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0B121C; --surface:#141D2A; --ink:#E6ECF5; --muted:#9AA8BA; --line:#263244; --fill:#1B2636;
+    --brand:#0A1D3A; --on-brand:#FFFFFF; --on-brand-muted:#A9B9D1; --tab-on:#2B5BA8; --tab-on-ink:#FFFFFF;
+    --accent:#7AAEFF; --accent-ink:#06162E; --accent-soft:#17294A;
+    --gold:#F2B233; --gold-ink:#2A1C00; --gold-soft:#3B2E0E; --gold-deep:#F5CE7A;
+    --urgent:#FF8A73; --urgent-soft:#45211B; --open:#62CE94; --open-soft:#163526;
+    --soon:#E4B95F; --soon-soft:#3A2F12; --closed:#8795A0; --closed-soft:#222D38;
+    --tag-bg:#1C3358; --tag-ink:#CFE0FF;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0B121C; --surface:#141D2A; --ink:#E6ECF5; --muted:#9AA8BA; --line:#263244; --fill:#1B2636;
+  --brand:#0A1D3A; --on-brand:#FFFFFF; --on-brand-muted:#A9B9D1; --tab-on:#2B5BA8; --tab-on-ink:#FFFFFF;
+  --accent:#7AAEFF; --accent-ink:#06162E; --accent-soft:#17294A;
+  --gold:#F2B233; --gold-ink:#2A1C00; --gold-soft:#3B2E0E; --gold-deep:#F5CE7A;
+  --urgent:#FF8A73; --urgent-soft:#45211B; --open:#62CE94; --open-soft:#163526;
+  --soon:#E4B95F; --soon-soft:#3A2F12; --closed:#8795A0; --closed-soft:#222D38;
+  --tag-bg:#1C3358; --tag-ink:#CFE0FF;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px -14px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--body);padding-bottom:calc(78px + env(safe-area-inset-bottom,0px));-webkit-tap-highlight-color:transparent}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;touch-action:manipulation}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3{text-wrap:balance}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+.num{font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+
+/* brand band */
+.hero{background:var(--brand);color:var(--on-brand);padding:calc(14px + env(safe-area-inset-top,0px)) 0 50px}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.logo{flex:0 0 auto;width:38px;height:38px;border-radius:10px;background:var(--on-brand);color:#0C2A52;display:grid;place-items:center;font-weight:800;font-size:14px;line-height:1;box-shadow:inset 0 -4px 0 var(--gold)}
+.brand strong{display:block;font-size:16px;font-weight:700;letter-spacing:.03em;line-height:1.3}
+.brand .intake{display:block;font-size:12px;color:var(--on-brand-muted);line-height:1.4}
+.hero-in{display:grid;gap:16px}
+.hero h1{font-size:27px;line-height:1.3;font-weight:800;margin:0;letter-spacing:.01em}
+.hero-sub{margin:10px 0 0;font-size:14px;line-height:1.75;color:var(--on-brand-muted);max-width:40em}
+.hero-sub b{color:var(--on-brand);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.dl-card{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:8px 8px 8px 12px}
+.dl-card[hidden]{display:none}
+.dl-head{flex:1;min-width:0;display:flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.4}
+.dl-head .dot{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:#FF7A5C}
+.dl-head b{font:700 19px/1 var(--fig);margin-right:2px}
+.dl-card ul{display:none;list-style:none;margin:12px 0 0;padding:0}
+.dl-card li{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid rgba(255,255,255,.12);font-size:13px;min-width:0}
+.dl-card li .s{flex:0 0 auto;font-weight:700}
+.dl-card li .t{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--on-brand-muted)}
+.dl-go{flex:0 0 auto;border:0;background:var(--on-brand);color:#0C2A52;border-radius:8px;padding:7px 12px;font-size:13px;font-weight:700;line-height:1.5}
+.disclaimer{font-size:12px;line-height:1.6;color:var(--on-brand-muted);margin:14px 0 0}
+
+/* view switch */
+.main{margin-top:-36px}
+.tabbar{position:sticky;top:0;z-index:15;margin:0 -16px 8px;padding:8px 16px}
+.tabbar.stuck{background:var(--bg)}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px;box-shadow:var(--shadow)}
+.tab{border:0;background:none;border-radius:10px;padding:10px 6px;font-size:15px;font-weight:700;color:var(--muted);white-space:nowrap;line-height:1.5}
+.tab[aria-selected="true"]{background:var(--tab-on);color:var(--tab-on-ink)}
+.view[hidden]{display:none}
+#mresult,.tgroup{scroll-margin-top:76px}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 16px;box-shadow:var(--shadow)}
+.panel h2{font-size:19px;line-height:1.3;font-weight:800;margin:0 0 4px}
+.panel .lead{color:var(--muted);font-size:13px;line-height:1.65;margin:0 0 16px}
+
+/* controls */
+.match{display:grid;grid-template-columns:372px minmax(0,1fr);gap:20px;align-items:start}
+.form-grid{display:grid;gap:18px}
+.fgroup{display:grid;gap:14px}
+.form-grid>.fgroup+.fgroup{border-top:1px solid var(--line);padding-top:16px}
+.fgroup-t{font-size:15px;font-weight:800;margin:0;line-height:1.4}
+.fld label,.fld .lbl{display:block;font-size:13.5px;font-weight:650;margin-bottom:7px}
+.fld .hint{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6}
+.field{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-sm);padding:10px 12px;font-size:16px;line-height:1.4;min-height:44px}
+.field:focus{border-color:var(--accent);outline:0;box-shadow:0 0 0 3px var(--accent-soft)}
+select.field{-webkit-appearance:none;appearance:none;padding-right:36px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%237B8896' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center}
+input[type="search"].field{-webkit-appearance:none;appearance:none}
+textarea.field{min-height:76px}
+.row2{display:grid;grid-template-columns:1fr 110px;gap:8px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 13px;font-size:13.5px;line-height:1.45;color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:650}
+.chip small{opacity:.65;margin-left:4px;font-size:11.5px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:var(--r-sm);padding:7px 13px;font-size:13.5px;font-weight:600;text-align:center;text-decoration:none;color:var(--ink);line-height:1.5;display:inline-block}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.btn.cta{background:var(--gold);border-color:var(--gold);color:var(--gold-ink);font-weight:800}
+.btn.soft{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+.btn.big{padding:12px 16px;font-size:16px;width:100%;border-radius:12px}
+.btn.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+@media (hover:hover){
+  .btn:hover{border-color:var(--accent);color:var(--accent)}
+  .btn.primary:hover{color:var(--accent-ink);filter:brightness(1.08)}
+  .btn.cta:hover{border-color:var(--gold);color:var(--gold-ink);filter:brightness(1.05)}
+  .row:hover{border-color:var(--accent)}
+}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.55}
+.check input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--accent)}
+
+/* match results */
+.res-head{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+.res-head h2{margin:0;font-size:19px;line-height:1.3;font-weight:800}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-bottom:12px;overflow:hidden}
+.kpi{padding:12px 14px;border-left:1px solid var(--line)}
+.kpi:first-child{border-left:0}
+.kpi b{display:block;font:700 26px/1.15 var(--fig);letter-spacing:.01em}
+.kpi span{font-size:12px;color:var(--muted)}
+.banner{border-radius:12px;padding:11px 14px;font-size:13.5px;line-height:1.65;margin-bottom:12px;background:var(--accent-soft)}
+.banner.warn{background:var(--soon-soft)}
+.consult{background:var(--brand);color:var(--on-brand);border-radius:var(--r);padding:16px;display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center;justify-content:space-between;margin-top:14px}
+.consult>div{flex:1 1 260px;min-width:0}
+.consult b{font-size:15.5px}
+.consult p{margin:4px 0 0;font-size:13px;line-height:1.6;color:var(--on-brand-muted)}
+.sgroup{border:1px solid var(--line);border-radius:var(--r);margin-bottom:12px;background:var(--surface);overflow:hidden}
+.sgroup>header{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--fill);border-bottom:1px solid var(--line)}
+.sgroup h3{margin:0;font-size:16.5px;font-weight:800;line-height:1.4;display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.rmb{display:block;font-size:12px;color:var(--muted);font-weight:500;margin-top:2px}
+.rk{font-size:11.5px;border-radius:5px;padding:1px 7px;margin-left:6px;font-weight:700;line-height:1.6;background:var(--gold-soft);color:var(--gold-deep);white-space:nowrap}
+.rk.no{background:var(--fill);color:var(--muted);font-weight:600}
+.sgroup>header .rk.no,.sgroup>header .typetag{background:var(--surface)}
+.typetag{font-size:11.5px;border-radius:5px;padding:1px 7px;line-height:1.6;background:var(--fill);color:var(--muted);margin-left:6px;font-weight:600}
+.sgroup h3 .rk,.sgroup h3 .typetag,.tags .rk{margin-left:0}
+.mrow{display:grid;grid-template-columns:minmax(0,1fr) 136px 150px;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line)}
+.mrow:first-of-type{border-top:0}
+.mrow .nm{font-weight:700;font-size:15px;line-height:1.4;overflow-wrap:anywhere}
+.mrow .en{font-size:12px;color:var(--muted);line-height:1.45;margin-top:1px;overflow-wrap:anywhere}
+.flags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.flag{font-size:11.5px;border-radius:5px;padding:1px 7px;line-height:1.6;font-weight:600}
+.flag.ok{background:var(--open-soft);color:var(--open)}
+.flag.no{background:var(--urgent-soft);color:var(--urgent)}
+.flag.q{background:var(--soon-soft);color:var(--soon)}
+.flag.n{background:var(--fill);color:var(--muted)}
+.more-in{display:block;width:100%;border:0;border-top:1px solid var(--line);background:none;padding:11px;color:var(--accent);font-size:13.5px;font-weight:600}
+
+/* browse */
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:20px;align-items:start}
+.filters{position:sticky;top:72px;max-height:calc(100vh - 170px);overflow:auto}
+.filters h3{font-size:13px;margin:16px 0 8px;font-weight:700}
+.filters h3:first-child{margin-top:0}
+.reset{margin-top:16px;width:100%}
+.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.search{flex:1 1 220px;min-width:0}
+.toolbar select{width:auto}
+.filter-btn{display:none}
+.count{color:var(--muted);font-size:13px;margin:0 0 10px}
+.row{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-bottom:10px}
+.row-main{display:grid;grid-template-columns:minmax(0,1fr) 132px 122px 138px 86px;gap:12px;align-items:center;padding:14px 16px}
+.title{min-width:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--muted)}
+.tag-sch{background:var(--tag-bg);color:var(--tag-ink);border-radius:5px;padding:1px 7px;font-weight:700;line-height:1.6}
+.title h3{margin:7px 0 0;font-size:16.5px;line-height:1.35;font-weight:800;overflow-wrap:anywhere}
+.title .en{color:var(--muted);font-size:12.5px;line-height:1.45;margin-top:2px;overflow-wrap:anywhere}
+.ref{font-size:11px;color:var(--muted);background:var(--fill);border-radius:4px;padding:1px 5px;margin-left:6px;font-weight:500;white-space:nowrap;vertical-align:2px}
+.cell{min-width:0;font-size:14px}
+.cell .lbl{display:none;color:var(--muted);font-size:11.5px;margin-bottom:2px}
+.fee b{font:700 17px/1.25 var(--fig);letter-spacing:.01em}
+.est{font-size:11px;background:var(--soon-soft);color:var(--soon);border-radius:4px;padding:1px 5px;margin-left:5px;font-weight:700;white-space:nowrap;vertical-align:1px}
+.cell small{display:block;color:var(--muted);font-size:12px;line-height:1.45;margin-top:2px}
+.pill{display:inline-block;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;line-height:1.6;white-space:nowrap}
+.pill.urgent{background:var(--urgent-soft);color:var(--urgent)}
+.pill.open{background:var(--open-soft);color:var(--open)}
+.pill.soon{background:var(--soon-soft);color:var(--soon)}
+.pill.closed,.pill.unknown{background:var(--closed-soft);color:var(--closed)}
+.dl .date{font:700 15px/1.3 var(--fig);letter-spacing:.01em;margin-top:4px}
+.acts{display:flex;flex-direction:column;gap:6px}
+.row.closed .title h3{color:var(--muted)}
+.detail{border-top:1px solid var(--line);background:var(--fill);border-radius:0 0 var(--r) var(--r);padding:14px 16px 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px 24px;font-size:13.5px;line-height:1.65}
+.detail h4{margin:0 0 3px;font-size:12px;color:var(--muted);font-weight:700}
+.detail ul{margin:0;padding-left:18px}
+.detail li.past{color:var(--closed);text-decoration:line-through}
+.detail .wide{grid-column:1/-1}
+.more{display:block;margin:16px auto;padding:10px 22px}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:var(--r);padding:28px 16px;text-align:center;color:var(--muted)}
+
+/* schools */
+.tgroup{margin-bottom:28px}
+.tgroup h2{font-size:20px;line-height:1.3;font-weight:800;margin:0 0 4px}
+.tgroup .lead{color:var(--muted);font-size:13.5px;line-height:1.65;margin:0 0 12px;max-width:44em}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.scard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;overflow:hidden}
+.scard>header{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;padding:14px 14px 12px;border-bottom:1px solid var(--line)}
+.scard h3{margin:0;font-size:17px;line-height:1.35;font-weight:800}
+.scard .en{font-size:12px;line-height:1.45;color:var(--muted);margin-top:2px}
+.qs{flex:0 0 auto;min-width:56px;text-align:center;background:var(--gold-soft);color:var(--gold-deep);border-radius:10px;padding:6px 9px;line-height:1.2}
+.qs span{display:block;font-size:10.5px;font-weight:700}
+.qs b{display:block;font:700 20px/1.15 var(--fig)}
+.qs.long b{font-size:13px;line-height:1.6}
+.qs.no{background:var(--fill);color:var(--muted)}
+.qs.no b{font-family:var(--body);font-size:12px;line-height:1.7}
+.scard .sbody{padding:12px 14px 14px;display:flex;flex-direction:column;gap:9px;flex:1}
+.scard dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:0;font-size:13px;line-height:1.55}
+.scard dt{color:var(--muted)}
+.scard dd{margin:0}
+.scard .note{font-size:12.5px;line-height:1.6;color:var(--muted)}
+.scard .acts2{display:flex;gap:8px;margin-top:auto;padding-top:4px}
+.scard .acts2 .btn{flex:1;padding:8px 12px}
+.fine{color:var(--muted);font-size:12.5px;line-height:1.7;max-width:60em}
+.foot{margin-top:30px;padding-top:16px;padding-bottom:8px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;line-height:1.75}
+.foot strong{color:var(--ink)}
+.foot p{margin:0 0 6px;max-width:60em}
+
+/* fixed action bar */
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -8px 22px -16px rgba(16,33,58,.35);padding:10px max(16px,calc((100vw - 1200px)/2 + 16px)) calc(10px + env(safe-area-inset-bottom,0px));display:flex;gap:10px;align-items:center;justify-content:space-between;z-index:20}
+.bar .cmp{font-size:12.5px;line-height:1.45;color:var(--muted);min-width:0}
+.bar .cmp .btn{margin-left:6px}
+.bar .btn.cta{flex:0 0 auto;padding:10px 22px;font-size:15px;border-radius:999px}
+
+/* sheets */
+.modal{position:fixed;inset:0;background:rgba(8,16,30,.58);display:none;align-items:flex-end;justify-content:center;z-index:40}
+.modal.show{display:flex}
+.sheet{background:var(--surface);border-radius:18px 18px 0 0;max-width:920px;width:100%;max-height:92vh;overflow:auto;-webkit-overflow-scrolling:touch;padding:0 16px calc(18px + env(safe-area-inset-bottom,0px))}
+.sheet>header{position:sticky;top:0;z-index:2;background:var(--surface);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 0 10px;margin-bottom:12px;border-bottom:1px solid var(--line)}
+.sheet h2{margin:0;font-size:18px;line-height:1.3;font-weight:800}
+.x{border:0;background:var(--fill);border-radius:999px;width:34px;height:34px;font-size:19px;line-height:1;flex:0 0 auto}
+.lf{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lf .wide{grid-column:1/-1}
+.lf fieldset{border:1px solid var(--line);border-radius:12px;padding:10px 12px 14px;margin:0;grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px 14px;min-width:0}
+.lf legend{font-size:13.5px;font-weight:800;padding:0 6px}
+.req{color:var(--urgent)}
+.err{color:var(--urgent);font-size:13px;min-height:1em}
+.qr{display:grid;place-items:center;gap:8px;border:1px dashed var(--line);border-radius:12px;padding:16px;text-align:center}
+.qr img{max-width:220px;width:100%;border-radius:8px}
+.wx{font-size:18px;font-weight:700;letter-spacing:.03em}
+pre.sum{white-space:pre-wrap;background:var(--fill);border-radius:10px;padding:10px 12px;font:13px/1.65 var(--body);margin:8px 0;max-height:220px;overflow:auto}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:12px}
+tr:last-child td,tr:last-child th{border-bottom:0}
+
+@media (min-width:861px){
+  .hero{padding-bottom:58px}
+  .brand{margin-bottom:34px}
+  .hero-in{grid-template-columns:minmax(0,1fr) 380px;gap:48px;align-items:end}
+  .hero h1{font-size:38px;line-height:1.25}
+  .hero-sub{font-size:15.5px}
+  .dl-card{display:block;padding:14px 16px}
+  .dl-card ul{display:block}
+  .dl-go{width:100%;margin-top:10px;padding:9px 12px}
+  .tabs{width:max-content;grid-template-columns:repeat(3,auto)}
+  .tab{padding:9px 30px}
+  .panel{padding:20px}
+  .modal{align-items:center;padding:16px}
+  .sheet{border-radius:18px;padding:0 20px 20px}
+}
+@media (max-width:860px){
+  .match,.layout{grid-template-columns:minmax(0,1fr)}
+  .filters{position:static;max-height:none;display:none;margin-bottom:12px}
+  .filters.show{display:block}
+  .filter-btn{display:inline-block}
+  .search{flex-basis:100%}
+  .toolbar select{flex:1;min-width:0}
+  .toolbar .btn{min-height:44px;padding:9px 16px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpi:nth-child(3){border-left:0}
+  .kpi:nth-child(n+3){border-top:1px solid var(--line)}
+  .row-main{grid-template-columns:minmax(0,1.2fr) minmax(0,.85fr) minmax(0,1.05fr);gap:12px 10px;padding:14px;align-items:start}
+  .row .fee b{font-size:16px}
+  .title{grid-column:1/-1}
+  .cell .lbl{display:block}
+  .acts{grid-column:1/-1;flex-direction:row}
+  .acts .btn{flex:1;padding:9px 12px}
+  .mrow{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+  .mrow>div:first-child{grid-column:1/-1}
+  .lf,.lf fieldset{grid-template-columns:minmax(0,1fr)}
+  .detail{padding:14px}
+}
+</style>
+</head>
+<body>
+<img src="share.png" alt="" style="position:absolute;width:0;height:0;overflow:hidden;opacity:0">
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">港硕</span>
+      <div><strong>香港硕士申请信息库</strong><span class="intake" id="intake">2027年9月入学</span></div>
+    </div>
+    <div class="hero-in">
+      <div>
+        <h1>你的背景，能申请香港哪些硕士？</h1>
+        <p class="hero-sub" id="sum-line">学费、英语要求和截止日期逐项对照各校官网，每天核对。数据加载中……</p>
+      </div>
+      <aside class="dl-card" id="h-urgent" aria-label="即将截止的课程" hidden>
+        <div class="dl-head"><span class="dot" aria-hidden="true"></span><span id="h-urgent-t"></span></div>
+        <ul id="h-next"></ul>
+        <button class="dl-go" type="button" data-act="urgentlist">查看这些课程</button>
+      </aside>
+    </div>
+    <p class="disclaimer">非院校官方网站。信息整理自各校官网，申请前请以官网为准。</p>
+  </div>
+</header>
+
+<main class="wrap main">
+  <div id="tabs-anchor"></div>
+  <div class="tabbar" id="tabbar">
+  <nav class="tabs" role="tablist" aria-label="板块">
+    <button class="tab" role="tab" id="t-match" aria-controls="v-match" aria-selected="true" data-view="match">选校建议</button>
+    <button class="tab" role="tab" id="t-browse" aria-controls="v-browse" aria-selected="false" data-view="browse">课程查询</button>
+    <button class="tab" role="tab" id="t-schools" aria-controls="v-schools" aria-selected="false" data-view="schools">院校一览</button>
+  </nav>
+  </div>
+
+  <!-- ============ 选校建议 ============ -->
+  <section class="view" id="v-match" role="tabpanel" aria-labelledby="t-match">
+    <div class="match">
+      <form class="panel" id="mform" autocomplete="off">
+        <h2>填写你的基本情况</h2>
+        <p class="lead">按各校官网公布的最低申请条件筛选。符合条件不等于一定录取，录取还要看院校背景、成绩和材料。</p>
+        <div class="form-grid">
+          <div class="fgroup">
+            <h3 class="fgroup-t" id="m-goal-l">读书主要为了什么</h3>
+            <div class="fld">
+              <div class="seg" id="m-goal" role="group" aria-labelledby="m-goal-l">
+                <button type="button" class="chip" data-v="id" aria-pressed="false">香港身份（毕业留港）</button>
+                <button type="button" class="chip" data-v="promo" aria-pressed="false">职务升迁 / 学历提升</button>
+                <button type="button" class="chip" data-v="both" aria-pressed="false">两者都有</button>
+              </div>
+              <div class="hint">为身份：结果按学费从低到高排学校；为升迁：按QS世界排名排学校。</div>
+            </div>
+          </div>
+          <div class="fgroup">
+            <h3 class="fgroup-t">你的背景</h3>
+            <div class="fld">
+              <label for="m-edu">最高学历</label>
+              <select class="field" id="m-edu">
+                <option value="ba">本科（有学士学位证）</option>
+                <option value="ba-nodeg">本科（没有学位证，只有毕业证）</option>
+                <option value="dz">大专 / 专科</option>
+                <option value="ma">硕士及以上</option>
+              </select>
+            </div>
+            <div class="fld">
+              <span class="lbl" id="m-eng-l">英语成绩</span>
+              <div class="row2">
+                <select class="field" id="m-engt" aria-labelledby="m-eng-l">
+                  <option value="ielts">雅思</option>
+                  <option value="toefl">托福（120分制）</option>
+                  <option value="cet6">大学英语六级（CET-6）</option>
+                  <option value="cet4">大学英语四级（CET-4）</option>
+                  <option value="emi">本科是全英文授课</option>
+                  <option value="none">暂时没有</option>
+                </select>
+                <input class="field num" id="m-engs" inputmode="decimal" placeholder="分数" aria-label="英语分数" value="6.5">
+              </div>
+              <div class="hint" id="m-eng-hint">雅思填总分，例如 6.5</div>
+            </div>
+            <div class="fld">
+              <label for="m-work">工作年限（毕业后全职工作）</label>
+              <select class="field" id="m-work">
+                <option value="">先不填</option>
+                <option value="0">应届 / 没有工作</option>
+                <option value="0.5">不到1年</option>
+                <option value="1">1–2年</option>
+                <option value="2">2–5年</option>
+                <option value="5">5年以上</option>
+              </select>
+              <div class="hint">有些课程要求至少几年工作经验（如MBA），也有课程只收工作不超过2年的人。这里只列全日制课程：用学生签证来港只能读全日制，兼读制毕业也不能申请IANG留港。</div>
+            </div>
+          </div>
+          <div class="fgroup">
+            <h3 class="fgroup-t">预算和偏好</h3>
+            <div class="fld">
+              <label for="m-budget">全程学费预算（人民币）</label>
+              <select class="field" id="m-budget">
+                <option value="0-10">10万以下</option>
+                <option value="10-15">10–15万</option>
+                <option value="15-20" selected>15–20万</option>
+                <option value="20-30">20–30万</option>
+                <option value="30-40">30–40万</option>
+                <option value="40-999">40万以上</option>
+                <option value="">不限</option>
+              </select>
+              <div class="hint" id="m-budget-rmb"></div>
+              <label class="check" style="margin-top:10px"><input type="checkbox" id="m-over"><span>超出预算一些也可以考虑（多显示超出上限不到30%的课程）</span></label>
+              <button class="btn soft" type="button" data-act="cheaplist" style="margin-top:10px">直接看全部15万港币以下的课程</button>
+            </div>
+            <div class="fld">
+              <span class="lbl">意向专业方向（可多选，不选就是都看）</span>
+              <div class="seg" id="m-cat"></div>
+            </div>
+            <div class="fld">
+              <span class="lbl">授课语言（不选就是都看）</span>
+              <div class="seg" id="m-moi" role="group" aria-label="授课语言">
+                <button type="button" class="chip" data-v="zh" aria-pressed="false">中文授课</button>
+                <button type="button" class="chip" data-v="en" aria-pressed="false">非中文授课</button>
+              </div>
+              <div class="hint">中文授课含普通话、粤语及中英双语课程；非中文授课指英文授课。官网没写授课语言的课程，选了其中一项就不显示。</div>
+            </div>
+            <div class="fld">
+              <span class="lbl">学校类别（可多选）</span>
+              <div class="seg" id="m-type"></div>
+            </div>
+          </div>
+          <button class="btn primary big" type="submit">查看可申请的学校和专业</button>
+        </div>
+      </form>
+
+      <div id="mresult">
+        <div class="empty">填写左边的信息，点“查看可申请的学校和专业”。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 课程查询 ============ -->
+  <section class="view" id="v-browse" role="tabpanel" aria-labelledby="t-browse" hidden>
+    <div class="layout">
+      <aside class="panel filters" id="filters" aria-label="筛选">
+        <h3>学校类别</h3><div class="seg" id="f-type"></div>
+        <h3>学校</h3><div class="seg" id="f-sch"></div>
+        <h3>专业方向</h3><div class="seg" id="f-cat"></div>
+        <h3>申请状态</h3><div class="seg" id="f-st"></div>
+        <h3><label for="f-fee">学费上限（全程）</label></h3>
+        <select class="field" id="f-fee"><option value="0">不限</option><option value="150000">15万港币以下</option><option value="200000">20万港币以内</option><option value="300000">30万港币以内</option><option value="400000">40万港币以内</option></select>
+        <h3><label for="f-moi">授课语言</label></h3>
+        <select class="field" id="f-moi"><option value="">不限</option><option value="en">英文</option><option value="zh">中文、普通话或双语</option></select>
+        <label class="check" style="margin-top:10px"><input type="checkbox" id="f-ft" checked><span>只看可全日制修读的课程</span></label>
+        <label class="check" style="margin-top:6px"><input type="checkbox" id="f-noexp"><span>隐藏必须有工作经验的课程</span></label>
+        <label class="check" style="margin-top:6px"><input type="checkbox" id="f-any"><span>只看写明可跨专业申请的课程</span></label>
+        <label class="check" style="margin-top:8px"><input type="checkbox" id="f-hide" checked><span>隐藏已截止的课程</span></label>
+        <button class="btn reset" type="button" id="reset">清空筛选</button>
+      </aside>
+      <div>
+        <div class="toolbar">
+          <input class="field search" id="q" type="search" placeholder="搜索专业或学校，例如 金融 / 教育 / 港中文 / TESOL" aria-label="搜索">
+          <button class="btn filter-btn" type="button" id="toggle-filters">筛选</button>
+          <select class="field" id="sort" aria-label="排序">
+            <option value="dl">按截止日期（最近的在前）</option>
+            <option value="fee-asc">按学费（从低到高）</option>
+            <option value="fee-desc">按学费（从高到低）</option>
+            <option value="sch">按学校</option>
+          </select>
+        </div>
+        <p class="count" id="count">正在载入数据……</p>
+        <div id="list"></div>
+        <button class="btn more" type="button" id="more" hidden>显示更多</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 院校一览 ============ -->
+  <section class="view" id="v-schools" role="tabpanel" aria-labelledby="t-schools" hidden>
+    <div id="schools"></div>
+    <p class="fine" id="coverage"></p>
+    <p class="fine" style="margin-top:8px">学费为非本地生全程学费，标“估”的是按官网每学分学费估算。标“参考译名”的中文课程名是本站翻译，官方名称以英文为准。截止日期默认显示非本地申请人适用的日期，多数课程滚动录取，额满会提前截止。英语要求为学校通用最低标准，部分课程更高；本科为全英文授课的申请人通常可以豁免。</p>
+  </section>
+
+  <footer class="foot">
+    <p><strong>香港硕士申请信息库</strong>不是任何院校的官方网站，与各院校没有隶属或授权关系。</p>
+    <p>学费、入学要求和截止日期整理自各校官网，每天核对一次。院校可能随时调整，申请前请以官网为准。世界排名采用 QS 世界大学排名 2027。</p>
+    <p id="audit-line"></p>
+  </footer>
+</main>
+
+<div class="bar">
+  <div class="cmp" id="cmpbar">勾选“对比”可并排比较最多 4 个课程</div>
+  <button class="btn cta" type="button" id="cta">免费评估背景</button>
+</div>
+
+<div class="modal" id="m-cmp" role="dialog" aria-modal="true" aria-labelledby="cmp-h"><div class="sheet">
+  <header><h2 id="cmp-h">课程对比</h2><button class="x" type="button" data-close aria-label="关闭">×</button></header>
+  <div class="tbl-wrap"><table id="cmp-t"></table></div>
+</div></div>
+
+<div class="modal" id="m-lead" role="dialog" aria-modal="true" aria-labelledby="lead-h"><div class="sheet" style="max-width:720px">
+  <header><h2 id="lead-h">免费评估背景</h2><button class="x" type="button" data-close aria-label="关闭">×</button></header>
+  <div id="lead-body"></div>
+</div></div>
+
+<script>
+/* ===== 咨询入口设置 =====
+   wechat：微信号；qr：二维码图片（data:image/... 内嵌图片）；
+   endpoint：接收申请人信息的网址（POST JSON）。留空时，申请人提交后会看到整理好的信息，复制后加微信发给你。 */
+const CONTACT = Object.assign({ wechat: "", qr: "", endpoint: "/api/lead", intro: "留下背景和联系方式，我们按你的情况整理可申请的学校和专业清单。" }, window.SITE || {});
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const money = n => "HK$" + Number(n).toLocaleString("en-US");
+const wan = n => (n / 10000).toFixed(n % 10000 ? 1 : 0) + "万";
+const FX = () => (D && D.fx && D.fx.rate) || 0;
+const rmbW = n => { const v = n * FX(); return (v / 10000).toFixed(1).replace(/\.0$/, "") + "万"; };
+const rmb = n => FX() ? `≈人民币${rmbW(n)}` : "";
+const rmbTag = n => FX() ? `<span class="rmb">${rmb(n)}</span>` : "";
+const rk = s => s.qs ? `QS ${s.qs}` : s.qsNote ? "不单独排名" : "QS未上榜";
+const rkTag = s => `<span class="rk${s.qs ? "" : " no"}" title="${esc(D.rank ? D.rank.src : "QS世界大学排名")}">${rk(s)}</span>`;
+const schedTxt = p => { const c = p.sched; if (!c) return ""; return (c.main ? `主要在${c.main}` : "") + (c.also ? `；部分在${c.also}` : "") + (c.note ? `。${c.note}` : ""); };
+const schedShort = p => p.sched && p.sched.main ? `${p.sched.main}上课` : "";
+const DAY = 86400000;
+const today = (() => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), d.getDate()); })();
+const parse = s => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+const fmt = s => { const [y, m, d] = s.split("-").map(Number); return `${y}年${m}月${d}日`; };
+
+let D = null, SCH = {};
+const cmp = new Set(), openRows = new Set();
+
+function status(p) {
+  if (p.open && parse(p.open) > today) return { k: "soon", label: "未开放", date: p.open, sub: fmt(p.open) + " 开放", order: 2, t: parse(p.open).getTime() };
+  const idx = p.dls.findIndex(d => parse(d) >= today);
+  if (idx >= 0) {
+    const d = p.dls[idx], days = Math.round((parse(d) - today) / DAY);
+    return { k: days <= 30 ? "urgent" : "open", label: days === 0 ? "今天截止" : `还剩${days}天`, date: d,
+      sub: p.dls.length > 1 ? `第${idx + 1}轮（共${p.dls.length}轮）` : "", order: 0, t: parse(d).getTime(), days };
+  }
+  if (p.dls.length) return { k: "closed", label: "已截止", date: p.dls[p.dls.length - 1], sub: "", order: 4, t: 0 };
+  return { k: "unknown", label: "见官网", date: "", sub: "截止日期以官网为准", order: 3, t: 0 };
+}
+const isEn = p => !!p.moi && p.moi.startsWith("英文");
+const isZh = p => !!p.moi && !p.moi.startsWith("英文");
+function budRange() { const v = $("#m-budget").value; if (!v || !FX()) return null; const [a, b] = v.split("-").map(Number); return [a * 1e4 / FX(), b * 1e4 / FX()]; }
+const modeTxt = p => p.mode === "FT" ? "全日制" : p.mode === "PT" ? "兼读制" : "全日制／兼读";
+
+function pillHTML(s) {
+  return `<span class="pill ${s.k}">${esc(s.label)}</span><div class="date num">${s.date ? esc(s.date) + (s.k === "soon" ? " 开放" : "") : ""}</div>${s.k !== "soon" && s.sub ? `<small>${esc(s.sub)}</small>` : ""}`;
+}
+
+/* ================= 选校建议 ================= */
+const M = { mode: "FT", cats: new Set(), types: new Set() };
+function erNums(o) {
+  const a = [];
+  if (o.i) a.push("雅思" + Number(o.i).toFixed(1) + (o.sub ? "（" + o.sub + "）" : ""));
+  if (o.t) a.push("托福" + o.t + (o.tn ? "（新制" + o.tn + "）" : ""));
+  if (o.c6) a.push("六级" + o.c6);
+  if (o.c4) a.push(o.c4 > 1 ? "四级" + o.c4 : "四级（未列分数线）");
+  return a.join("／");
+}
+const ER_SRC = { p: "来源：课程官网页面", c: "来源：学校统一要求（课程页没有另设英语要求）", s: "来源：学校统一要求（课程页尚未逐个核对）" };
+function engReq(p) {
+  const sc = SCH[p.sch], e = p.er;
+  if (!e) return { k: "unk", txt: "本站尚未逐个核实这个课程的英语要求", sub: sc.engMin || (sc.eng && !sc.eng.startsWith("见官网")) ? "学校公布的一般要求：" + sc.eng : "", src: "" };
+  if (e.k === "none") return { k: "none", txt: "不设英语考试要求", sub: e.n || "", src: e.v === "p" ? ER_SRC.p : "来源：学校入学要求页的统一规定" };
+  if (e.k === "nl") return { k: "nl", txt: "课程页的入学要求没有列出英语考试要求", sub: p.moi ? "授课语言：" + p.moi : "", src: ER_SRC.p };
+  if (e.k === "std") { const m = sc.engMin || {}; return { k: "std", min: { i: m.ielts, t: m.toefl, c6: m.cet6, c4: m.cet4 || 0 }, txt: sc.engStd || sc.eng, sub: [e.n, sc.engStdNote].filter(Boolean).join("；"), src: ER_SRC[e.v] }; }
+  return { k: "own", min: e, txt: erNums(e), sub: e.n || "", src: ER_SRC[e.v] };
+}
+function engCheck(p, t, score) {
+  const r = engReq(p);
+  if (r.k === "none") return { k: "ok", t: "不设英语要求" };
+  if (r.k === "nl") return { k: "ok", t: "课程页未列英语要求" };
+  if (r.k === "unk") return { k: "q", t: "英语要求待核实" };
+  if (t === "emi") return { k: "ok", t: "英文授课本科可豁免" };
+  const m = r.min, soft = p.er.v === "s" ? "（学校统一线）" : "";
+  if (t === "none") return { k: "no", t: m.i ? `需雅思${Number(m.i).toFixed(1)}` : m.c4 ? "需四级成绩" : "需英语成绩" };
+  const v = Number(score);
+  if (!v) return { k: "q", t: "请填写分数" };
+  if (t === "ielts") return !m.i ? { k: "q", t: "未列雅思分数线" } : v >= m.i ? { k: "ok", t: "雅思达标" + soft } : { k: "no", t: `雅思差${(m.i - v).toFixed(1)}` };
+  if (t === "toefl") return !m.t ? { k: "q", t: "未列托福分数线" } : v >= m.t ? { k: "ok", t: "托福达标" + soft } : { k: "no", t: `托福差${m.t - v}分` };
+  if (t === "cet6") {
+    if (m.c6) return v >= m.c6 ? { k: "ok", t: "六级达标" + soft } : { k: "no", t: `六级需${m.c6}` };
+    if (m.c4) return { k: "q", t: "接受四级，六级需确认" };
+    return { k: "no", t: "不接受六级" };
+  }
+  if (t === "cet4") {
+    if (m.c4 > 1) return v >= m.c4 ? { k: "ok", t: "四级达标" } : { k: "no", t: `四级需${m.c4}` };
+    if (m.c4) return { k: "q", t: "接受四级，分数线需确认" };
+    return { k: "no", t: m.c6 ? "不接受四级（需六级" + m.c6 + "）" : "不接受四级" };
+  }
+  return { k: "q", t: "英语要求需确认" };
+}
+const WRANGE = { "0": [0, 0], "0.5": [0, 1], "1": [1, 2], "2": [2, 5], "5": [5, 99] };
+function discTxt(p) {
+  if (p.anyDisc === true) return "<b>可以</b>，课程页写明不限本科专业";
+  if (p.anyDisc === false) return "<b>不可以</b>，课程页要求相关专业背景" + (p.bg ? "（" + esc(p.bg) + "）" : "");
+  return (p.bg ? esc(p.bg) + "；" : "") + "课程页的专业背景要求本站尚未逐个核对";
+}
+function expTxt(p) {
+  const e = p.exp; if (!e) return "";
+  const y = e.y ? `${e.y}年` : "";
+  if (e.t === "req") return `要求至少${y}工作经验`;
+  if (e.t === "max") return `只收工作${y ? "不超过" + y : "年限短"}的申请人`;
+  if (e.t === "pref") return y ? `最好有${y}工作经验` : "有工作经验者优先";
+  if (e.t === "alt") return "相关本科不需工作经验，其他背景另有要求";
+  return "";
+}
+function expShort(p) {
+  const e = p.exp; if (!e) return "";
+  if (e.t === "req") return `须${e.y || ""}年以上经验`;
+  if (e.t === "max") return `限工作≤${e.y || ""}年`;
+  if (e.t === "pref") return e.y ? `最好${e.y}年经验` : "经验优先";
+  return "";
+}
+function expCheck(p, work) {
+  const e = p.exp; if (!e || e.t === "alt") return null;
+  if (work === "" || work == null) return e.t === "req" || e.t === "max" ? { k: "q", t: expShort(p) } : (e.t === "pref" ? { k: "n", t: expShort(p) } : null);
+  const [L, U] = WRANGE[work] || [0, 99];
+  if (e.t === "req") { if (!e.y) return { k: "q", t: "须有工作经验" }; if (U <= e.y && !(L === U && L >= e.y)) return false; return L >= e.y ? { k: "ok", t: "工作经验达标" } : { k: "q", t: `须${e.y}年以上经验` }; }
+  if (e.t === "max") { if (e.y != null && L > e.y) return false; return { k: "ok", t: `限工作≤${e.y || ""}年` }; }
+  if (e.t === "pref") { if (e.y && U <= e.y && !(L === U && L >= e.y)) return { k: "q", t: `最好${e.y}年经验` }; if (!e.y && U === 0) return { k: "n", t: "经验优先" }; return null; }
+  return null;
+}
+function structTxt(p) {
+  const a = [];
+  if (p.credits) a.push(`毕业需修${p.credits}学分`);
+  if (p.struct) a.push(`核心课${p.struct.core}门 + 选修课${p.struct.elec}门`);
+  return a.join("，");
+}
+function runMatch() {
+  const edu = $("#m-edu").value, et = $("#m-engt").value, es = $("#m-engs").value;
+  const over = $("#m-over").checked, moi = M.moi || "", work = $("#m-work").value, goal = M.goal || "";
+  const br = budRange(), lo = br ? br[0] : 0, budget = br ? br[1] : 0;
+  const cap = br ? (over ? budget * 1.3 : budget) : Infinity;
+  const res = [];
+  for (const p of D.programmes) {
+    if (p._s.k === "closed") continue;
+    if (!p.mode.includes("FT") || p.nonLocal === false) continue;
+    const xf = expCheck(p, work);
+    if (xf === false) continue;
+    if (M.cats.size && !M.cats.has(p.cat)) continue;
+    if (M.types.size && !M.types.has(SCH[p.sch].type)) continue;
+    if (moi === "en" && !isEn(p)) continue;
+    if (moi === "zh" && !isZh(p)) continue;
+    if (p.fee && (p.fee > cap || p.fee < lo)) continue;
+    const e = engCheck(p, et, es);
+    const flags = [e];
+    if (!p.fee) flags.push({ k: "q", t: "学费待确认" });
+    else if (br && p.fee > budget) flags.push({ k: "q", t: `超预算约人民币${rmbW(p.fee - budget)}` });
+    if (xf) flags.push(xf);
+    res.push({ p, flags, eok: e.k === "ok", score: (e.k === "ok" ? 0 : e.k === "q" ? 1 : 2) });
+  }
+  renderMatch(res, { edu, et, budget, goal });
+  try { sessionStorage.setItem("hk-match", JSON.stringify({ edu, et, es, budget: $("#m-budget").value, over, moi, work, goal, cats: [...M.cats], types: [...M.types] })); } catch (e) {}
+}
+function renderMatch(res, ctx) {
+  const ok = res.filter(r => r.eok), bySch = {};
+  res.forEach(r => (bySch[r.p.sch] = bySch[r.p.sch] || []).push(r));
+  const okOf = k => bySch[k].filter(r => r.eok).length;
+  const qsN = s => { const m = String(s.qs || "").match(/\d+/); return m ? +m[0] : 9999; };
+  const minFee = k => Math.min(...bySch[k].map(r => r.p.fee || Infinity));
+  const base = (a, b) => (okOf(b.key) > 0) - (okOf(a.key) > 0) || okOf(b.key) - okOf(a.key) || bySch[b.key].length - bySch[a.key].length;
+  const schools = D.schools.filter(s => bySch[s.key]).sort((a, b) =>
+    ctx.goal === "id" ? (okOf(b.key) > 0) - (okOf(a.key) > 0) || minFee(a.key) - minFee(b.key) || base(a, b)
+    : ctx.goal === "promo" || ctx.goal === "both" ? (okOf(b.key) > 0) - (okOf(a.key) > 0) || qsN(a) - qsN(b) || base(a, b) : base(a, b));
+  const urgent = res.filter(r => r.p._s.k === "urgent").length;
+  let banner = "";
+  if (ctx.edu === "ba-nodeg" || ctx.edu === "dz") {
+    banner = `<div class="banner warn"><b>${ctx.edu === "dz" ? "大专学历" : "没有学士学位证"}需要个别评估。</b> 各校官网的基本要求都是“学士学位或同等学历”，没有公开列明接受哪些非学位学历。下面按其他条件列出课程供参考，能否申请要逐所确认。<button class="btn cta" type="button" data-act="lead" style="margin-left:6px">提交背景评估</button></div>`;
+  }
+  if (ctx.goal === "id" || ctx.goal === "both") banner += `<div class="banner">为了香港身份：读本地全日制课程（修读期至少一学年），毕业后6个月内可申请IANG，不需工作合约即可留港24个月。下面只列可全日制修读的课程${ctx.goal === "id" ? "，学校按学费从低到高排列" : ""}。</div>`;
+  if (ctx.goal === "promo" || ctx.goal === "both") banner += `<div class="banner">为了职务升迁：学校名气通常更受用人单位看重，下面的学校按QS世界大学排名从高到低排列（英语已达标的学校排前）。</div>`;
+  if (ctx.et === "none") banner += `<div class="banner warn">还没有英语成绩时，除了中文授课、只要求中文能力的课程，多数课程需要先考雅思或托福。下面标出了每所学校的最低分。</div>`;
+  const groups = schools.map(s => {
+    const rs = bySch[s.key].sort((a, b) => a.score - b.score || a.p._s.order - b.p._s.order || a.p._s.t - b.p._s.t);
+    const okN = rs.filter(r => r.eok).length;
+    const fees = rs.map(r => r.p.fee).filter(Boolean);
+    const range = fees.length ? `${wan(Math.min(...fees))}–${wan(Math.max(...fees))}港币（约人民币${rmbW(Math.min(...fees))}–${rmbW(Math.max(...fees))}）` : "学费待确认";
+    const open = `${s.key}`;
+    const shown = M.open && M.open.has(open) ? rs : rs.slice(0, 4);
+    return `<article class="sgroup">
+      <header><div><h3>${esc(s.zh)}${rkTag(s)}<span class="typetag">${esc(D.types[s.type])}</span></h3>
+        <div class="muted" style="font-size:12.5px">${rs.length} 个课程 · 英语达标 ${okN} 个 · ${fees.length ? "学费 " + range : range}</div></div>
+        <button class="btn" type="button" data-act="goschool" data-k="${esc(s.key)}">在课程查询里看</button></header>
+      ${shown.map(r => mrowHTML(r)).join("")}
+      ${rs.length > 4 ? `<button class="more-in" type="button" data-act="expand" data-k="${esc(open)}">${M.open && M.open.has(open) ? "收起" : `展开其余 ${rs.length - 4} 个课程`}</button>` : ""}
+    </article>`;
+  }).join("");
+  $("#mresult").innerHTML = `
+    <div class="res-head"><h2>可以考虑的学校和专业</h2><span class="muted" style="font-size:13px">按官网最低条件筛选，已排除已截止课程</span></div>
+    <div class="kpis">
+      <div class="kpi"><b class="num">${res.length}</b><span>符合基本条件的课程</span></div>
+      <div class="kpi"><b class="num">${schools.length}</b><span>涉及学校</span></div>
+      <div class="kpi"><b class="num">${ok.length}</b><span>英语已达标</span></div>
+      <div class="kpi"><b class="num" style="color:var(--urgent)">${urgent}</b><span>30天内截止</span></div>
+    </div>
+    ${banner}
+    ${res.length ? groups : `<div class="empty">没有符合条件的课程。可以放宽预算、增加专业方向，或调整工作年限。</div>`}
+    <div class="consult"><div><b>想知道哪些学校录取机会更大？</b><p>录取会看本科院校背景、均分和材料，这些官网不公布分数线。</p></div><button class="btn cta" type="button" data-act="lead">提交背景，免费评估</button></div>`;
+}
+function mrowHTML(r) {
+  const p = r.p;
+  return `<div class="mrow">
+    <div><div class="nm">${esc(p.zh || p.en)}${p.zh && p.zhRef ? '<span class="ref">参考译名</span>' : ""}</div>
+      ${p.zh && p.en ? `<div class="en">${esc(p.en)}</div>` : ""}
+      <div class="flags">${r.flags.map(f => `<span class="flag ${f.k}">${esc(f.t)}</span>`).join("")}<span class="flag n">${esc(p.cat)}</span>${p.moi ? `<span class="flag n">${esc(p.moi)}授课</span>` : ""}${schedShort(p) ? `<span class="flag n">${esc(schedShort(p))}</span>` : ""}</div></div>
+    <div class="cell fee">${p.fee ? `<b class="num">${money(p.fee)}</b>${(p.feeEst ? '<span class="est">估</span>' : "") + (p.feeRef ? `<span class="est" title="参考${p.feeRef}学年学费">${p.feeRef.slice(2)}</span>` : "")}${rmbTag(p.fee)}` : '<span class="muted">学费未公布</span>'}<small>${esc(p.dur || "")}</small></div>
+    <div class="cell dl">${pillHTML(p._s)}<div style="margin-top:7px"><button class="btn soft" type="button" data-act="ask" data-id="${esc(p.id)}">咨询这个课程</button></div></div>
+  </div>`;
+}
+
+/* ================= 课程查询 ================= */
+const B = { q: "", type: new Set(), sch: new Set(), cat: new Set(), st: new Set(), fee: 0, moi: "", ft: true, hide: true, sort: "dl" };
+let view = [], shown = 0; const PAGE = 40;
+function passes(p) {
+  const s = p._s;
+  if (B.hide && s.k === "closed") return false;
+  if (B.ft && !p.mode.includes("FT")) return false;
+  if (B.noexp && p.exp && p.exp.t === "req") return false;
+  if (B.any && p.anyDisc !== true) return false;
+  if (B.type.size && !B.type.has(SCH[p.sch].type)) return false;
+  if (B.sch.size && !B.sch.has(p.sch)) return false;
+  if (B.cat.size && !B.cat.has(p.cat)) return false;
+  if (B.st.size) { const k = s.k === "urgent" ? ["urgent", "open"] : [s.k]; if (!k.some(x => B.st.has(x))) return false; }
+  if (B.fee && !(p.fee && p.fee <= B.fee)) return false;
+  if (B.moi === "en" && !isEn(p)) return false;
+  if (B.moi === "zh" && !isZh(p)) return false;
+  if (B.q && !B.q.toLowerCase().split(/\s+/).filter(Boolean).every(t => p._hay.includes(t))) return false;
+  return true;
+}
+function sortView() {
+  const fk = (p, hi) => p.fee ? p.fee : (hi ? -1 : 9e12), so = k => D.schools.findIndex(s => s.key === k);
+  view.sort((a, b) => B.sort === "fee-asc" ? fk(a) - fk(b) : B.sort === "fee-desc" ? fk(b, 1) - fk(a, 1)
+    : B.sort === "sch" ? so(a.sch) - so(b.sch) || a._i - b._i : a._s.order - b._s.order || a._s.t - b._s.t || a._i - b._i);
+}
+function rowHTML(p) {
+  const s = p._s, sc = SCH[p.sch], open = openRows.has(p.id);
+  const fee = p.fee ? `<b class="num">${money(p.fee)}</b>${(p.feeEst ? '<span class="est">估</span>' : "") + (p.feeRef ? `<span class="est" title="参考${p.feeRef}学年学费">${p.feeRef.slice(2)}</span>` : "")}${rmbTag(p.fee)}` : `<b style="font-size:14px;color:var(--muted)">未公布</b>`;
+  return `<article class="row ${s.k}">
+  <div class="row-main">
+    <div class="title"><div class="tags"><span class="tag-sch">${esc(sc.short)}</span>${rkTag(sc)}${p.fac ? `<span>${esc(p.fac)}</span>` : ""}<span>${esc(p.cat)}</span></div>
+      <h3>${esc(p.zh || p.en)}${p.zh && p.zhRef ? '<span class="ref">参考译名</span>' : ""}${p.nonLocal === false ? '<span class="ref">不招非本地生</span>' : ""}${p.anyDisc === true ? '<span class="ref">可跨专业</span>' : p.anyDisc === false ? '<span class="ref">须相关专业</span>' : ""}</h3>
+      ${p.zh && p.en ? `<div class="en">${esc(p.en)}${p.code ? " · " + esc(p.code) : ""}</div>` : ""}</div>
+    <div class="cell fee"><span class="lbl">学费</span>${fee}<small>${p.feeLocal ? "本地生 " + money(p.feeLocal) : (p.fee ? "全程" : "")}</small></div>
+    <div class="cell"><span class="lbl">学制 · 语言</span>${esc(p.dur || "学制见官网")}<small>${modeTxt(p)} · ${p.moi ? esc(p.moi) + (p.moiAssumed ? "*" : "") : "语言见官网"}${schedShort(p) ? " · " + esc(schedShort(p)) : ""}${expShort(p) ? " · " + esc(expShort(p)) : ""}</small></div>
+    <div class="cell dl"><span class="lbl">申请截止</span>${pillHTML(s)}</div>
+    <div class="acts">
+      <button class="btn soft" type="button" data-act="detail" data-id="${esc(p.id)}" aria-expanded="${open}">${open ? "收起" : "详情"}</button>
+      <button class="btn ${cmp.has(p.id) ? "on" : ""}" type="button" data-act="cmp" data-id="${esc(p.id)}" aria-pressed="${cmp.has(p.id)}">${cmp.has(p.id) ? "已加入对比" : "对比"}</button>
+    </div>
+  </div>${open ? detailHTML(p) : ""}</article>`;
+}
+function detailHTML(p) {
+  const sc = SCH[p.sch];
+  const rounds = p.dls.length ? "<ul>" + p.dls.map((d, i) => `<li class="${parse(d) < today ? "past" : ""}">${p.dls.length > 1 ? `第${i + 1}轮：` : ""}<span class="num">${fmt(d)}</span></li>`).join("") + "</ul>" : "官网未列明具体日期";
+  const feeL = [p.fee ? money(p.fee) + (p.feeEst ? "（估算）" : "") + (p.feeRef ? `（参考${p.feeRef}学费）` : "") + (FX() ? `，${rmb(p.fee)}` : "") : "", p.feeLocal ? "本地生 " + money(p.feeLocal) : "", esc(p.feeNote)].filter(Boolean);
+  const fxl = p.fee && FX() ? `<br><span class="muted" style="font-size:12px">人民币按${esc(D.fx.src)} ${(D.fx.rate * 100).toFixed(2)} 换算（${esc(D.fx.time)}），仅供参考</span>` : "";
+  const er = engReq(p);
+  const eng = `<b>${esc(er.txt)}</b>` + (er.sub ? `<br><span class="muted" style="font-size:12px">${esc(er.sub)}</span>` : "") + (er.src ? `<br><span class="muted" style="font-size:12px">${er.src}</span>` : "");
+  const moiL = p.moi ? esc(p.moi) + (p.moiAssumed ? '<span class="muted" style="font-size:12px">（课程页未列明，该校课程一般以英文授课）</span>' : "") : '<span class="muted">官网课程页未列明</span>';
+  return `<div class="detail">
+    <div><h4>申请截止（非本地申请人）</h4>${rounds}${p.open ? `<div>开放申请：<span class="num">${fmt(p.open)}</span></div>` : ""}</div>
+    <div><h4>学费（非本地生，全程）</h4>${feeL.join("<br>") || "见官网"}${fxl}</div>
+    <div><h4>上课方式</h4>${esc(modeTxt(p))}${p.dur ? " · " + esc(p.dur) : ""}
+      ${structTxt(p) ? `<br>${esc(structTxt(p))}` : ""}
+      <br>${p.sched ? "上课时间：" + esc(schedTxt(p)) : '<span class="muted">上课时间：官网课程页未写明，以学系课表为准</span>'}
+      ${p.credits && !p.struct ? '<br><span class="muted" style="font-size:12px">香港硕士一门课多为3学分（港大多为6学分），具体科目见官网课程页</span>' : ""}
+      ${p.sched || p.credits ? '<br><span class="muted" style="font-size:12px">摘自官网，每学期课表可能调整</span>' : ""}</div>
+    <div><h4>工作经验</h4>${p.exp ? esc(expTxt(p)) + (p.exp.note ? `<br><span class="muted" style="font-size:12px">官网：${esc(p.exp.note)}</span>` : "") : '<span class="muted">本站暂未查到工作经验要求，以官网为准</span>'}</div>
+    <div><h4>入学要求</h4>学士学位或同等学历<br>跨专业申请：${discTxt(p)}<span class="muted" style="font-size:12px">；成绩等其他要求以课程页为准</span><br>英语：${eng}<br>授课语言：${moiL}</div>
+    <div><h4>学校</h4>${esc(sc.zh)}${rkTag(sc)}<br><span class="muted">${esc(D.types[sc.type])}</span></div>
+    ${p.note ? `<div class="wide"><h4>备注</h4>${esc(p.note)}</div>` : ""}
+    <div class="wide" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <a class="btn primary" href="${esc(p.url)}" target="_blank" rel="noopener">打开官网课程页</a>
+      <button class="btn" type="button" data-act="ask" data-id="${esc(p.id)}">咨询这个课程</button>
+      <span class="muted" style="font-size:12px">核对日期 ${esc(p.chk || D.verified)}</span>
+    </div></div>`;
+}
+function renderList(reset) {
+  if (reset) { view = D.programmes.filter(passes); sortView(); shown = Math.min(PAGE, view.length); }
+  $("#list").innerHTML = view.length ? view.slice(0, shown).map(rowHTML).join("") : `<div class="empty">没有符合条件的课程。试试放宽筛选，或取消“隐藏已截止”。</div>`;
+  $("#more").hidden = shown >= view.length;
+  $("#more").textContent = `显示更多（还有 ${view.length - shown} 个）`;
+  $("#count").textContent = `找到 ${view.length} 个课程（共收录 ${D.programmes.length} 个）`;
+  const n = B.type.size + B.sch.size + B.cat.size + B.st.size + (B.fee ? 1 : 0) + (B.moi ? 1 : 0);
+  $("#toggle-filters").textContent = n ? `筛选（${n}）` : "筛选";
+}
+
+/* ================= 院校一览 ================= */
+function renderSchools() {
+  const P = D.programmes;
+  const LEAD = { top8: "政府资助的八所公立大学，也就是常说的“港八大”。", other: "港八大以外可以颁授硕士学位的本地院校，包括私立大学、自资院校和演艺学院，学费普遍较低，中文授课课程较多。" };
+  const CHEAP = 150000;
+  const cheap = P.filter(p => p.fee && p.fee <= CHEAP && p._s.k !== "closed").sort((x, y) => x.fee - y.fee);
+  const noFee = P.filter(p => !p.fee && p._s.k !== "closed").length;
+  const cheapHTML = `<section class="tgroup" id="cheap"><h2>预算15万以下</h2>
+    <p class="lead">全程学费不超过15万港币${FX() ? `（约人民币${rmbW(CHEAP)}）` : ""}、还能申请的课程共 ${cheap.length} 个，按学费从低到高排列。另有 ${noFee} 个课程官网还没公布学费，没有算在内。</p>
+    <div class="sgroup">${cheap.length ? cheap.map(p => mrowHTML({ p, flags: [{ k: "n", t: SCH[p.sch].short + " · " + rk(SCH[p.sch]) }] })).join("") : '<div class="empty">目前没有15万以下、还能申请的课程。</div>'}
+    <button class="more-in" type="button" data-act="cheap">在课程查询里筛选（可加专业、学校条件）</button></div></section>`;
+  $("#schools").innerHTML = cheapHTML + Object.keys(D.types).map(t => {
+    const ss = D.schools.filter(s => s.type === t);
+    return `<section class="tgroup"><h2>${esc(D.types[t])}</h2><p class="lead">${LEAD[t] || ""}</p><div class="cards">${ss.map(s => {
+      const ps = P.filter(p => p.sch === s.key), fees = ps.map(p => p.fee).filter(Boolean);
+      const live = ps.filter(p => p._s.k === "open" || p._s.k === "urgent" || p._s.k === "soon");
+      const next = live.filter(p => p._s.k !== "soon").sort((a, b) => a._s.t - b._s.t)[0];
+      const zh = ps.filter(isZh).length;
+      const qsLong = s.qs && s.qs.length > 4;
+      return `<article class="scard"><header><div><h3>${esc(s.zh)}</h3><div class="en">${esc(s.en)}</div></div>
+        <div class="qs${s.qs ? (qsLong ? " long" : "") : " no"}" title="${esc(D.rank ? D.rank.src : "QS世界大学排名")}"><span>QS排名</span><b>${s.qs ? esc(s.qs) : s.qsNote ? "不单独排名" : "未上榜"}</b></div></header>
+        <div class="sbody"><dl><dt>收录课程</dt><dd class="num">${ps.length} 个${zh ? `（中文授课 ${zh} 个）` : ""}</dd>
+        <dt>学费范围</dt><dd>${fees.length ? `${wan(Math.min(...fees))}–${wan(Math.max(...fees))}港币<br><span class="muted" style="font-size:12px">约人民币${rmbW(Math.min(...fees))}–${rmbW(Math.max(...fees))}</span>` : "见官网"}</dd>
+        <dt>英语要求</dt><dd>${esc(s.eng)}</dd>
+        <dt>最近截止</dt><dd>${next ? `${esc(next._s.date)}（${esc(next.zh || next.en)}）` : "见官网"}</dd></dl>
+        ${s.note ? `<div class="note">${esc(s.note)}</div>` : ""}
+        <div class="acts2"><button class="btn primary" type="button" data-act="goschool" data-k="${esc(s.key)}">查看课程</button><a class="btn" href="${esc(s.src)}" target="_blank" rel="noopener">学校官网</a></div></div></article>`;
+    }).join("")}</div></section>`;
+  }).join("");
+  $("#coverage").textContent = D.coverage || "";
+}
+
+/* ================= 咨询表单 ================= */
+const EDU_TXT = { ba: "本科（有学士学位证）", "ba-nodeg": "本科（没有学位证）", dz: "大专 / 专科", ma: "硕士及以上" };
+const ENG_TXT = { ielts: "雅思", toefl: "托福", cet6: "六级", cet4: "四级", emi: "本科全英文授课", none: "暂无" };
+function leadForm(p) {
+  let m = {}; try { m = JSON.parse(sessionStorage.getItem("hk-match") || "{}"); } catch (e) {}
+  const engPre = m.et ? ENG_TXT[m.et] + (m.es && !["emi", "none"].includes(m.et) ? " " + m.es : "") : "";
+  const want = p ? `${SCH[p.sch].zh} · ${p.zh || p.en}` : (m.cats && m.cats.length ? m.cats.join("、") : "");
+  const budget = m.budget ? (m.budget.endsWith("-999") ? `学费${m.budget.split("-")[0]}万人民币以上` : `学费${m.budget.replace("-", "–")}万人民币`) : "";
+  const GOAL = { id: "香港身份（毕业留港）", promo: "职务升迁 / 学历提升", both: "身份和升迁都有" };
+  const sel = (id, opts, v) => `<select class="field" id="${id}">${opts.map(o => `<option${o === v ? " selected" : ""}>${o}</option>`).join("")}</select>`;
+  $("#lead-body").innerHTML = `
+    <p class="muted" style="margin:0 0 12px">${esc(CONTACT.intro)} 带 <span class="req">*</span> 的为必填。</p>
+    <form id="lf" class="lf" novalidate>
+      <div class="fld"><label for="l-name">称呼 <span class="req">*</span></label><input class="field" id="l-name" maxlength="20" placeholder="例如 王同学"></div>
+      <div class="fld"><label for="l-contact">微信号或手机号 <span class="req">*</span></label><input class="field" id="l-contact" maxlength="40" placeholder="方便我们联系你"></div>
+      <div class="fld"><label for="l-top">最高学历 <span class="req">*</span></label>${sel("l-top", ["", "本科", "专科", "专升本", "硕士", "其他"], m.edu === "dz" ? "专科" : m.edu ? "本科" : "")}</div>
+      <div class="fld"><label for="l-cert">毕业证和学位证 <span class="req">*</span></label>${sel("l-cert", ["", "毕业证和学位证都有", "只有毕业证，没有学位证", "只有学位证", "还没毕业（应届）"], m.edu === "ba" ? "毕业证和学位证都有" : m.edu === "ba-nodeg" ? "只有毕业证，没有学位证" : "")}</div>
+      <fieldset><legend>本科（专科毕业可跳过）</legend>
+        <div class="fld"><label for="l-ug">本科学校</label><input class="field" id="l-ug" maxlength="60" placeholder="学校全称"></div>
+        <div class="fld"><label for="l-ugmaj">所学专业</label><input class="field" id="l-ugmaj" maxlength="60"></div>
+        <div class="fld"><label for="l-uggrad">毕业时间</label><input class="field" id="l-uggrad" placeholder="例如 2025年6月 / 2027年应届" maxlength="30"></div>
+        <div class="fld"><label for="l-ugtier">院校背景</label>${sel("l-ugtier", ["", "985", "211", "双一流", "普通一本", "二本", "三本 / 独立学院", "海外院校", "其他"], "")}</div>
+        <div class="fld"><label for="l-ugtype">学历性质</label>${sel("l-ugtype", ["", "全日制统招", "专升本", "自考", "成人高考 / 函授", "网络教育 / 开放大学", "其他"], "")}</div>
+        <div class="fld"><label for="l-gpa">在校成绩（均分或GPA）</label><input class="field" id="l-gpa" placeholder="例如 均分82 / GPA 3.2" maxlength="30"></div>
+      </fieldset>
+      <fieldset><legend>专科（如有）</legend>
+        <div class="fld"><label for="l-dz">专科学校</label><input class="field" id="l-dz" maxlength="60"></div>
+        <div class="fld"><label for="l-dzmaj">专业</label><input class="field" id="l-dzmaj" maxlength="60"></div>
+        <div class="fld"><label for="l-dzgrad">毕业时间</label><input class="field" id="l-dzgrad" maxlength="30"></div>
+        <div class="fld"><label for="l-dztier">院校背景</label><input class="field" id="l-dztier" maxlength="40" placeholder="例如 公办 / 民办 / 双高"></div>
+      </fieldset>
+      <fieldset><legend>硕士（如有）</legend>
+        <div class="fld"><label for="l-ma">硕士学校</label><input class="field" id="l-ma" maxlength="60"></div>
+        <div class="fld"><label for="l-mamaj">专业</label><input class="field" id="l-mamaj" maxlength="60"></div>
+        <div class="fld"><label for="l-magrad">毕业时间</label><input class="field" id="l-magrad" maxlength="30"></div>
+        <div class="fld"><label for="l-matier">院校背景</label>${sel("l-matier", ["", "985", "211", "双一流", "普通一本", "二本", "三本 / 独立学院", "海外院校", "其他"], "")}</div>
+      </fieldset>
+      <div class="fld"><label for="l-eng">语言成绩（四六级、雅思、托福）</label><input class="field" id="l-eng" maxlength="60" value="${esc(engPre)}" placeholder="例如 六级480 / 雅思6.5"></div>
+      <div class="fld"><label for="l-work">工作中社保缴纳几年</label>${sel("l-work", ["", "没有工作", "不到1年", "1–2年", "2–5年", "5年以上"], ({ "0": "没有工作", "0.5": "不到1年", "1": "1–2年", "2": "2–5年", "5": "5年以上" })[m.work] || "")}</div>
+      <div class="fld"><label for="l-goal">读书需求</label>${sel("l-goal", ["", "香港身份（毕业留港）", "职务升迁 / 学历提升", "身份和升迁都有"], GOAL[m.goal] || "")}</div>
+      <div class="fld"><label for="l-want">意向专业</label><input class="field" id="l-want" maxlength="80" value="${esc(want)}"></div>
+      <div class="fld"><label for="l-year">申请哪一年入读</label>${sel("l-year", ["2027年9月", "2028年1月", "2028年9月", "还没确定"], "2027年9月")}</div>
+      <div class="fld"><label for="l-budget">读书大概预算</label><input class="field" id="l-budget" maxlength="40" value="${esc(budget)}" placeholder="例如 学费加生活费30万人民币"></div>
+      <div class="fld"><label for="l-high">可否接受学费高的</label>${sel("l-high", ["", "可以", "看情况", "不能"], m.over ? "看情况" : "")}</div>
+      <div class="fld wide"><label for="l-more">其他想说明的情况</label><textarea class="field" id="l-more" rows="2" maxlength="300"></textarea></div>
+      <input type="text" id="l-hp" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px" aria-hidden="true">
+      <label class="check wide" style="font-size:12.5px"><input type="checkbox" id="l-agree"><span>我同意本站收集以上信息，仅用于联系我并评估选校，不会公开或转给第三方；我可随时要求删除。请勿填写身份证号、护照号等证件信息。</span></label>
+      <div class="err wide" id="l-err" role="alert"></div>
+      <button class="btn cta big wide" type="submit">提交，获取评估</button>
+    </form>`;
+  $("#m-lead").classList.add("show");
+  $("#lf").addEventListener("submit", submitLead);
+}
+function collectLead() {
+  const v = id => ($("#" + id).value || "").trim();
+  return { 称呼: v("l-name"), 联系方式: v("l-contact"), 最高学历: v("l-top"), 毕业证和学位证: v("l-cert"),
+    本科学校: v("l-ug"), 本科专业: v("l-ugmaj"), 本科毕业时间: v("l-uggrad"), 本科院校背景: v("l-ugtier"), 学历性质: v("l-ugtype"), 在校成绩: v("l-gpa"),
+    专科学校: v("l-dz"), 专科专业: v("l-dzmaj"), 专科毕业时间: v("l-dzgrad"), 专科院校背景: v("l-dztier"),
+    硕士学校: v("l-ma"), 硕士专业: v("l-mamaj"), 硕士毕业时间: v("l-magrad"), 硕士院校背景: v("l-matier"),
+    语言成绩: v("l-eng"), 社保缴纳年数: v("l-work"), 读书需求: v("l-goal"), 意向专业: v("l-want"), 入读年份: v("l-year"), 预算: v("l-budget"), 可否接受学费高的: v("l-high"), 其他说明: v("l-more") };
+}
+async function submitLead(e) {
+  e.preventDefault();
+  const L = collectLead();
+  if (!$("#l-agree").checked) { $("#l-err").textContent = "请先勾选同意信息使用说明。"; return; }
+  if ($("#l-hp").value) return;
+  if (!L.称呼 || !L.联系方式) { $("#l-err").textContent = "请填写称呼和微信号或手机号，方便我们联系你。"; return; }
+  if (!L.最高学历 || !L.毕业证和学位证) { $("#l-err").textContent = "请选择最高学历，以及毕业证和学位证的情况。"; return; }
+  if (!(L.本科学校 && L.本科专业) && !(L.专科学校 && L.专科专业)) { $("#l-err").textContent = "请填写毕业学校和所学专业（本科或专科填一项即可）。"; return; }
+  if (!/^[\w\-+@.]{5,40}$/.test(L.联系方式.replace(/\s/g, ""))) { $("#l-err").textContent = "联系方式格式不对，请填写微信号或11位手机号。"; return; }
+  const text = Object.entries(L).filter(([, v]) => v).map(([k, v]) => `${k}：${v}`).join("\n");
+  let sent = false;
+  if (CONTACT.endpoint) {
+    try {
+      const r = await fetch(CONTACT.endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...L, 提交时间: new Date().toISOString(), 来源: "香港硕士申请信息库" }) });
+      sent = r.ok;
+    } catch (err) { sent = false; }
+  }
+  const contact = (CONTACT.qr || CONTACT.wechat)
+    ? `<div class="qr">${CONTACT.qr ? `<img src="${esc(CONTACT.qr)}" alt="微信二维码">` : ""}${CONTACT.wechat ? `<div>微信号</div><div class="wx">${esc(CONTACT.wechat)}</div><button class="btn" type="button" id="copy-wx">复制微信号</button>` : ""}</div>` : "";
+  $("#lead-body").innerHTML = sent
+    ? `<p><b>已收到你的信息。</b>我们会通过你留下的联系方式联系你。${contact ? "也可以直接加微信，备注“硕士评估”。" : ""}</p>${contact}`
+    : `<p><b>信息已整理好。</b>${contact ? "请复制下面的内容，加微信后发给我们，备注“硕士评估”。" : "请复制下面的内容保存好。"}</p>
+       <pre class="sum" id="l-sum">${esc(text)}</pre><button class="btn primary" type="button" id="copy-sum">复制信息</button>${contact}
+       ${contact ? "" : `<p class="muted" style="font-size:13px">网站的咨询联系方式还没有设置。</p>`}`;
+  const cs = $("#copy-sum"); if (cs) cs.onclick = () => copy(text, cs);
+  const cw = $("#copy-wx"); if (cw) cw.onclick = () => copy(CONTACT.wechat, cw);
+}
+function copy(t, btn) {
+  if (navigator.clipboard) navigator.clipboard.writeText(t).then(() => { btn.textContent = "已复制"; }).catch(() => { btn.textContent = "请长按文字手动复制"; });
+  else btn.textContent = "请长按文字手动复制";
+}
+
+/* ================= 对比 ================= */
+function renderCmpBar() {
+  $("#cmpbar").innerHTML = cmp.size ? `已选 ${cmp.size} 个课程 <button class="btn primary" type="button" id="cmp-go">开始对比</button><button class="btn" type="button" id="cmp-clear">清空</button>` : "勾选“对比”可并排比较最多 4 个课程";
+}
+function showCmp() {
+  const ps = [...cmp].map(id => D.programmes.find(p => p.id === id)).filter(Boolean);
+  const R = [["学校", p => SCH[p.sch].zh + "（" + rk(SCH[p.sch]) + "）"], ["学校类别", p => D.types[SCH[p.sch].type]], ["学费（非本地生）", p => p.fee ? money(p.fee) + (p.feeEst ? "（估算）" : "") + (p.feeRef ? `（参考${p.feeRef}学费）` : "") + (FX() ? "，" + rmb(p.fee) : "") : "见官网"], ["上课时间", p => schedTxt(p) || "官网未写明"], ["学分 / 课程", p => structTxt(p) || "见官网"], ["工作经验", p => expTxt(p) || "官网未列要求"],
+    ["学制", p => p.dur || "见官网"], ["修读模式", modeTxt], ["授课语言", p => p.moi || "见官网"], ["申请状态", p => p._s.label + (p._s.date ? "（" + p._s.date + "）" : "")],
+    ["全部截止轮次", p => p.dls.join("、") || "见官网"], ["英语要求", p => engReq(p).txt], ["备注", p => p.note || "—"]];
+  $("#cmp-t").innerHTML = `<thead><tr><th></th>${ps.map(p => `<th style="min-width:170px;color:var(--ink);font-size:13.5px">${esc(p.zh || p.en)}</th>`).join("")}</tr></thead>
+    <tbody>${R.map(([l, f]) => `<tr><th>${l}</th>${ps.map(p => `<td>${esc(f(p))}</td>`).join("")}</tr>`).join("")}
+    <tr><th>官网</th>${ps.map(p => `<td><a href="${esc(p.url)}" target="_blank" rel="noopener">打开课程页</a></td>`).join("")}</tr></tbody>`;
+  $("#m-cmp").classList.add("show");
+}
+
+/* ================= 通用 ================= */
+function chips(el, items, set, cb) {
+  el.innerHTML = items.map(([k, l, n]) => `<button class="chip" type="button" data-k="${esc(k)}" aria-pressed="${set.has(k)}">${esc(l)}${n != null ? `<small>${n}</small>` : ""}</button>`).join("");
+  el.onclick = e => { const b = e.target.closest(".chip"); if (!b) return; const k = b.dataset.k; set.has(k) ? set.delete(k) : set.add(k); b.setAttribute("aria-pressed", set.has(k)); cb && cb(); };
+}
+function sync(el, set) { el.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", set.has(b.dataset.k))); }
+function showView(v) {
+  if (!["match", "browse", "schools"].includes(v)) v = "match";
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.view === v));
+  document.querySelectorAll(".view").forEach(s => s.hidden = s.id !== "v-" + v);
+}
+function toTabs() { const a = $("#tabs-anchor"); if (a) window.scrollTo(0, Math.max(0, a.getBoundingClientRect().top + window.scrollY)); }
+function goSchool(k) { B.sch.clear(); B.sch.add(k); B.type.clear(); sync($("#f-sch"), B.sch); sync($("#f-type"), B.type); renderList(true); location.hash = "browse"; showView("browse"); toTabs(); }
+
+document.addEventListener("click", e => {
+  const t = e.target;
+  if (t.matches("[data-close]") || t.classList.contains("modal")) { t.closest(".modal").classList.remove("show"); return; }
+  const tab = t.closest(".tab"); if (tab) { location.hash = tab.dataset.view; showView(tab.dataset.view); if ($("#tabs-anchor").getBoundingClientRect().top < 0) toTabs(); return; }
+  const b = t.closest("[data-act]");
+  if (b) {
+    const a = b.dataset.act, id = b.dataset.id, p = id && D.programmes.find(x => x.id === id);
+    if (a === "detail") { openRows.has(id) ? openRows.delete(id) : openRows.add(id); renderList(false); }
+    else if (a === "cmp") { if (cmp.has(id)) cmp.delete(id); else if (cmp.size < 4) cmp.add(id); else return; renderList(false); renderCmpBar(); }
+    else if (a === "ask") leadForm(p);
+    else if (a === "lead") leadForm(null);
+    else if (a === "goschool") goSchool(b.dataset.k);
+    else if (a === "urgentlist") { B.st.clear(); B.st.add("urgent"); sync($("#f-st"), B.st); B.sort = "dl"; $("#sort").value = "dl"; renderList(true); location.hash = "browse"; showView("browse"); toTabs(); }
+    else if (a === "cheaplist") { location.hash = "schools"; showView("schools"); setTimeout(() => { const el = $("#cheap"); if (el) el.scrollIntoView(); }, 50); }
+    else if (a === "cheap") { B.fee = 150000; $("#f-fee").value = "150000"; B.sort = "fee-asc"; const so = $("#sort"); if (so) so.value = "fee-asc"; renderList(true); location.hash = "browse"; showView("browse"); toTabs(); }
+    else if (a === "expand") { M.open = M.open || new Set(); M.open.has(b.dataset.k) ? M.open.delete(b.dataset.k) : M.open.add(b.dataset.k); runMatch(); }
+    return;
+  }
+  if (t.id === "cmp-go") showCmp();
+  if (t.id === "cmp-clear") { cmp.clear(); renderList(false); renderCmpBar(); }
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape") document.querySelectorAll(".modal.show").forEach(m => m.classList.remove("show")); });
+window.addEventListener("hashchange", () => showView(location.hash.slice(1)));
+
+function init(data) {
+  D = data; D.schools.forEach(s => SCH[s.key] = s);
+  D.programmes.forEach((p, i) => { p._i = i; p._s = status(p); p._hay = [p.zh, p.en, p.code, SCH[p.sch].zh, SCH[p.sch].short, SCH[p.sch].en, p.fac, p.cat].join(" ").toLowerCase(); });
+  const P = D.programmes, cnt = f => P.filter(f).length;
+  $("#intake").textContent = D.intake;
+  $("#sum-line").innerHTML = `收录 <b>${D.schools.length}</b> 所本地院校的 <b>${P.length}</b> 个授课型硕士课程。学费、英语要求和截止日期逐项对照各校官网，最近核对：<b>${esc(D.verified)}</b>。`;
+  if (D.engAudit && $("#audit-line")) $("#audit-line").textContent = `英语要求按课程核对（${D.engAudit.date}）：${D.engAudit.byPage} 个课程已对照课程官网页面，${D.engAudit.byRule} 个按学校公布的统一规则标注，${D.engAudit.pending} 个尚未核实，页面上已注明“待核实”。`;
+  const urg = P.filter(p => p._s.k === "urgent" && p.mode.includes("FT")).sort((a, b) => a._s.t - b._s.t);
+  if (urg.length) {
+    $("#h-urgent").hidden = false;
+    $("#h-urgent-t").innerHTML = `<b>${urg.length}</b> 个课程将在30天内截止申请`;
+    $("#h-next").innerHTML = urg.slice(0, 3).map(p => `<li><span class="pill urgent">${esc(p._s.label)}</span><span class="s">${esc(SCH[p.sch].short)}</span><span class="t">${esc(p.zh || p.en)}</span></li>`).join("");
+  }
+  if (FX()) {
+    const bh = () => { const r = budRange(); $("#m-budget-rmb").textContent = (r ? `约合港币 ${wan(Math.round(r[0] / 1000) * 1000)}–${r[1] > 5e6 ? "不限" : wan(Math.round(r[1] / 1000) * 1000)}。` : "") + `按${D.fx.src} ${(D.fx.rate * 100).toFixed(2)}（每100港币）换算，${D.fx.time} 更新，仅供参考。`; };
+    $("#m-budget").addEventListener("change", bh); bh();
+  }
+  const cats = [...new Set(P.map(p => p.cat))].map(c => [c, c, cnt(p => p.cat === c)]).sort((a, b) => b[2] - a[2]);
+  const types = Object.entries(D.types).map(([k, l]) => [k, l, cnt(p => SCH[p.sch].type === k)]);
+  chips($("#m-cat"), cats.map(([k, l]) => [k, l]), M.cats);
+  chips($("#m-type"), types.map(([k, l]) => [k, l]), M.types);
+  chips($("#f-type"), types, B.type, () => renderList(true));
+  chips($("#f-sch"), D.schools.map(s => [s.key, s.short, cnt(p => p.sch === s.key)]), B.sch, () => renderList(true));
+  chips($("#f-cat"), cats, B.cat, () => renderList(true));
+  chips($("#f-st"), [["urgent", "30天内截止"], ["open", "申请中"], ["soon", "未开放"], ["unknown", "日期见官网"]], B.st, () => renderList(true));
+
+  renderSchools(); renderList(true); renderCmpBar();
+  showView(location.hash.slice(1));
+}
+
+$("#mform").addEventListener("submit", e => { e.preventDefault(); if (D) { runMatch(); if (window.innerWidth < 861) $("#mresult").scrollIntoView({ behavior: "smooth" }); } });
+$("#m-engt").addEventListener("change", e => {
+  const t = e.target.value, s = $("#m-engs");
+  const H = { ielts: ["雅思填总分，例如 6.5", "6.5"], toefl: ["托福填120分制总分，例如 85；新制1–6分请换算或咨询", "85"], cet6: ["六级填总分，例如 480；港大、港中文、港科大、理大不接受六级", "480"], cet4: ["四级填总分，例如 500；只有少数课程接受四级，中文授课且不设英语要求的课程不受影响", "500"], emi: ["本科为全英文授课时多数学校可豁免英语成绩，需学校出具证明", ""], none: ["没有成绩也可以先看，结果会标出各课程的最低分", ""] };
+  $("#m-eng-hint").textContent = H[t][0]; s.value = H[t][1]; s.disabled = t === "emi" || t === "none";
+});
+$("#q").addEventListener("input", e => { B.q = e.target.value.trim(); renderList(true); });
+$("#sort").addEventListener("change", e => { B.sort = e.target.value; renderList(true); });
+$("#f-fee").addEventListener("change", e => { B.fee = Number(e.target.value); renderList(true); });
+$("#f-moi").addEventListener("change", e => { B.moi = e.target.value; renderList(true); });
+$("#f-ft").addEventListener("change", e => { B.ft = e.target.checked; renderList(true); });
+$("#f-noexp").addEventListener("change", e => { B.noexp = e.target.checked; renderList(true); });
+$("#f-any").addEventListener("change", e => { B.any = e.target.checked; renderList(true); });
+const tog = (id, key) => { $(id).onclick = e => { const b = e.target.closest(".chip"); if (!b) return; M[key] = M[key] === b.dataset.v ? "" : b.dataset.v; $(id).querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c.dataset.v === M[key])); }; };
+tog("#m-goal", "goal"); tog("#m-moi", "moi");
+$("#f-hide").addEventListener("change", e => { B.hide = e.target.checked; renderList(true); });
+$("#more").addEventListener("click", () => { shown = Math.min(shown + PAGE, view.length); renderList(false); });
+$("#toggle-filters").addEventListener("click", () => $("#filters").classList.toggle("show"));
+$("#cta").addEventListener("click", () => leadForm(null));
+$("#reset").addEventListener("click", () => {
+  Object.assign(B, { q: "", fee: 0, moi: "", ft: true, hide: true }); [B.type, B.sch, B.cat, B.st].forEach(s => s.clear());
+  $("#q").value = ""; $("#f-fee").value = "0"; $("#f-moi").value = ""; $("#f-ft").checked = true; $("#f-hide").checked = true; $("#f-noexp").checked = false; B.noexp = false; $("#f-any").checked = false; B.any = false;
+  ["#f-type", "#f-sch", "#f-cat", "#f-st"].forEach(id => sync($(id), new Set())); renderList(true);
+});
+
+if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(e => $("#tabbar").classList.toggle("stuck", !e.isIntersecting && e.boundingClientRect.top < 0))).observe($("#tabs-anchor"));
+
+fetch("data.json?t=" + Math.floor(Date.now() / 3e5), { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d => { init(d); runMatch(); })
+  .catch(err => { $("#sum-line").textContent = "数据没有载入成功，请刷新页面再试。"; console.error(err); });
+</script>
+</body>
+</html>

@@ -406,7 +406,7 @@ tr:last-child td,tr:last-child th{border-bottom:0}
               </select>
               <div class="hint" id="m-budget-rmb"></div>
               <label class="check" style="margin-top:10px"><input type="checkbox" id="m-over"><span>超出预算一些也可以考虑（多显示超出上限不到30%的课程）</span></label>
-              <button class="btn soft" type="button" data-act="cheaplist" style="margin-top:10px">直接看全部15万港币以下的课程</button>
+              <button class="btn soft" type="button" data-act="cheaplist" style="margin-top:10px">不填资料，直接按学费预算看课程</button>
             </div>
             <div class="fld">
               <span class="lbl">意向专业方向（可多选，不选就是都看）</span>
@@ -789,13 +789,20 @@ function renderList(reset) {
 function renderSchools() {
   const P = D.programmes;
   const LEAD = { top8: "政府资助的八所公立大学，也就是常说的“港八大”。", other: "港八大以外可以颁授硕士学位的本地院校，包括私立大学、自资院校和演艺学院，学费普遍较低，中文授课课程较多。" };
-  const CHEAP = 150000;
-  const cheap = P.filter(p => p.fee && p.fee <= CHEAP && p._s.k !== "closed").sort((x, y) => x.fee - y.fee);
-  const noFee = P.filter(p => !p.fee && p._s.k !== "closed").length;
-  const cheapHTML = `<section class="tgroup" id="cheap"><h2>预算15万以下</h2>
-    <p class="lead">全程学费不超过15万港币${FX() ? `（约人民币${rmbW(CHEAP)}）` : ""}、还能申请的课程共 ${cheap.length} 个，按学费从低到高排列。另有 ${noFee} 个课程官网还没公布学费，没有算在内。</p>
-    <div class="sgroup">${cheap.length ? cheap.map(p => mrowHTML({ p, flags: [{ k: "n", t: SCH[p.sch].short + " · " + rk(SCH[p.sch]) }] })).join("") : '<div class="empty">目前没有15万以下、还能申请的课程。</div>'}
-    <button class="more-in" type="button" data-act="cheap">在课程查询里筛选（可加专业、学校条件）</button></div></section>`;
+  const TIERS = [[0, 15, "15万以下"], [15, 20, "15–20万"], [20, 30, "20–30万"], [30, 40, "30–40万"], [40, 9999, "40万以上"]];
+  const ti = Math.min(window.__tier || 0, TIERS.length - 1), [lo, hi, tl] = TIERS[ti];
+  const open = P.filter(p => p._s.k !== "closed");
+  const inTier = (p, a, b) => p.fee && p.fee > a * 1e4 && p.fee <= b * 1e4;
+  const cheap = open.filter(p => inTier(p, lo, hi)).sort((x, y) => x.fee - y.fee);
+  const noFee = open.filter(p => !p.fee).length;
+  const SHOW = 40;
+  const range = hi > 9000 ? `高于${lo}万港币` : lo ? `高于${lo}万、不超过${hi}万港币` : `不超过${hi}万港币`;
+  const rmbTxt = FX() ? `（约人民币${lo ? rmbW(lo * 1e4) + "–" : ""}${hi > 9000 ? "以上" : rmbW(hi * 1e4)}）`.replace("–以上", "以上") : "";
+  const cheapHTML = `<section class="tgroup" id="cheap"><h2>按学费预算看课程</h2>
+    <div class="chips" style="margin:6px 0 10px">${TIERS.map((t, k) => `<button class="chip" aria-pressed="${k === ti}" type="button" data-act="tier" data-k="${k}">${t[2]}<small>${open.filter(p => inTier(p, t[0], t[1])).length}</small></button>`).join("")}</div>
+    <p class="lead">全程学费${range}${rmbTxt}、还能申请的课程共 ${cheap.length} 个，按学费从低到高排列${cheap.length > SHOW ? `，这里先列前 ${SHOW} 个` : ""}。预算指港币学费，不含生活费。另有 ${noFee} 个课程官网还没公布学费，没有算在内。</p>
+    <div class="sgroup">${cheap.length ? cheap.slice(0, SHOW).map(p => mrowHTML({ p, flags: [{ k: "n", t: SCH[p.sch].short + " · " + rk(SCH[p.sch]) }] })).join("") : '<div class="empty">这个预算区间目前没有还能申请的课程。</div>'}
+    <button class="more-in" type="button" data-act="cheap">在课程查询里按学费筛选（可加专业、学校条件）</button></div></section>`;
   $("#schools").innerHTML = cheapHTML + Object.keys(D.types).map(t => {
     const ss = D.schools.filter(s => s.type === t);
     return `<section class="tgroup"><h2>${esc(D.types[t])}</h2><p class="lead">${LEAD[t] || ""}</p><div class="cards">${ss.map(s => {
@@ -952,8 +959,9 @@ document.addEventListener("click", e => {
     else if (a === "lead") leadForm(null);
     else if (a === "goschool") goSchool(b.dataset.k);
     else if (a === "urgentlist") { B.st.clear(); B.st.add("urgent"); sync($("#f-st"), B.st); B.sort = "dl"; $("#sort").value = "dl"; renderList(true); location.hash = "browse"; showView("browse"); toTabs(); }
+    else if (a === "tier") { window.__tier = +b.dataset.k; renderSchools(); const el = $("#cheap"); if (el) el.scrollIntoView(); }
     else if (a === "cheaplist") { location.hash = "schools"; showView("schools"); setTimeout(() => { const el = $("#cheap"); if (el) el.scrollIntoView(); }, 50); }
-    else if (a === "cheap") { B.fee = 150000; $("#f-fee").value = "150000"; B.sort = "fee-asc"; const so = $("#sort"); if (so) so.value = "fee-asc"; renderList(true); location.hash = "browse"; showView("browse"); toTabs(); }
+    else if (a === "cheap") { const fv = [150000, 200000, 300000, 400000, 0][window.__tier || 0]; B.fee = fv; $("#f-fee").value = String(fv); B.sort = "fee-asc"; const so = $("#sort"); if (so) so.value = "fee-asc"; renderList(true); location.hash = "browse"; showView("browse"); toTabs(); }
     else if (a === "expand") { M.open = M.open || new Set(); M.open.has(b.dataset.k) ? M.open.delete(b.dataset.k) : M.open.add(b.dataset.k); runMatch(); }
     return;
   }

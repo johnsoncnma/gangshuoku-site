@@ -259,6 +259,62 @@
    "engSrc": "https://www.speed-polyu.edu.hk/admission/entrance-requirement/polyu-speed-taught-postgraduate-programmes",
    "engStd": "雅思6.0／托福80（新制4.5）",
    "engStdNote": "未达标者个别考虑，录取后可能须加修3学分附加英语科目（非本地生每学分HK$4,215，另计）"
+  },
+  {
+   "key": "thei",
+   "zh": "香港高等教育科技学院（THEi）",
+   "short": "THEi",
+   "en": "Technological and Higher Education Institute of Hong Kong",
+   "eng": "硕士课程以普通话授课，不设英语考试要求，改为普通话能力要求",
+   "src": "https://thei.edu.hk/admission/postgraduate/",
+   "note": "职业训练局（VTC）辖下的自资院校，硕士由THEi颁授，资历架构第6级。学费2026/27年度每学分HK$9,000，硕士须修30学分。部分课程1月入学、周五至周一连续四天日间上课。",
+   "type": "other",
+   "engMin": null,
+   "qs": null,
+   "qsNote": "不参加排名",
+   "engSrc": "https://thei.edu.hk/admission/entry-requirement-and-fees/"
+  },
+  {
+   "key": "hkct",
+   "zh": "港专学院",
+   "short": "港专",
+   "en": "HKCT Institute of Higher Education",
+   "eng": "本科非英文授课者须雅思6.5或同等成绩",
+   "src": "https://www.hkct.edu.hk/en/master-of-social-sciences",
+   "note": "自资专上院校，硕士由港专学院颁授，资历架构第6级。学费为2026/27年度数字。",
+   "type": "other",
+   "engMin": null,
+   "qs": null,
+   "qsNote": "不参加排名",
+   "engSrc": "https://www.hkct.edu.hk/en/programmes/humanities-and-social-sciences/master-of-social-sciences-career-counselling"
+  },
+  {
+   "key": "twc",
+   "zh": "东华学院",
+   "short": "东华",
+   "en": "Tung Wah College",
+   "eng": "全日制为普通话授课，改为普通话能力要求；英语成绩只适用于兼读制英文班",
+   "src": "https://www.twc.edu.hk/tc/Programmes/mshsm",
+   "note": "东华三院辖下的自资院校，硕士由东华学院颁授，资历架构第6级。",
+   "type": "other",
+   "engMin": null,
+   "qs": null,
+   "qsNote": "不参加排名",
+   "engSrc": "https://www.twc.edu.hk/tc/Programmes/mshsm"
+  },
+  {
+   "key": "yccece",
+   "zh": "耀中幼教学院",
+   "short": "耀中",
+   "en": "Yew Chung College of Early Childhood Education",
+   "eng": "英文授课班须雅思6.5／托福79；另设中文授课班，改为中文能力要求",
+   "src": "https://www.yccece.edu.hk/en/programmes/postgraduate-programmes",
+   "note": "专注幼儿教育的私立院校，2024年取得资历架构第6级院校评审，可自行颁授教育硕士。",
+   "type": "other",
+   "engMin": null,
+   "qs": null,
+   "qsNote": "不参加排名",
+   "engSrc": "https://www.yccece.edu.hk/en/master-of-education"
   }
  ],
  "pending": [],
@@ -267,7 +323,7 @@
   "other": "非港八大",
   "affil": "大学附属学院（学位由大学颁授）"
  },
- "coverage": "已收录港八大、都会、恒生、树仁、珠海、圣方济各、演艺学院和理大专业进修学院（SPEED）的授课型硕士。香港高等教育科技学院（THEi）、港专学院、东华学院等院校也开办经本地评审的硕士课程，正在核对，尚未收录。港大SPACE、城大SCOPE等学院与海外大学合办的硕士，学位由海外大学颁授，本站没有收录。",
+ "coverage": "收录读完后符合IANG（非本地毕业生留港/回港就业安排）申请资格的全日制硕士：港八大、都会、恒生、树仁、珠海、圣方济各、演艺学院、理大专业进修学院（SPEED），以及香港高等教育科技学院（THEi）、港专学院、东华学院、耀中幼教学院。与海外大学合办、由海外大学颁授学位的课程不能申请IANG，本站不收录。港大专业进修学院（SPACE）的全日制深造文凭正在核对资历学分，暂未收录。",
  "rank": {
   "src": "QS世界大学排名2027",
   "date": "2026-06-18"
@@ -279,7 +335,7 @@
  },
  "engAudit": {
   "date": "2026-11-18",
-  "byPage": 746,
+  "byPage": 760,
   "byRule": 18,
   "pending": 10
  },
@@ -1057,6 +1113,20 @@
 {"id":"speed-84602","sch":"speed","en":"Master of Science in Smart Engineering and Construction","zh":"智慧工程及建筑理学硕士","zhRef":false,"code":"84602","fac":"科学、工程及健康学部","mode":"FT/PT","dur":"1年（兼读2年）","fee":201190,"feeLocal":null,"feeNote":"HK$6,490/学分 × 31学分","feeEst":false,"feeRef":"2026/27","open":"","dls":[],"note":"每年9月和1月两次入学；2027年9月入学的申请时间和截止日期官网未公布，官网提示非本地生名额有限、宜尽早申请；申请人或须参加英文面试","url":"https://www.speed-polyu.edu.hk/programme/master-of-science-in-smart-engineering-and-construction","moi":"英文","moiAssumed":false,"cat":"工程","credits":31,"chk":"2026-11-17","sched":{"main":"白天、晚上、周末","note":"官网称平日及／或周末、日间及／或晚间上课，也可能集中授课"},"anyDisc":false,"bg":"工程、科学或科技","er":{"k":"std","v":"p"},"exp":{"t":"alt","note":"没有学士学位者可凭其他相关资历及／或合适工作经验申请"}},
 {"id":"speed-84615","sch":"speed","en":"Master of Science in Sustainable Engineering Management","zh":"可持续工程管理理学硕士","zhRef":false,"code":"84615","fac":"科学、工程及健康学部","mode":"FT/PT","dur":"1年（兼读2年）","fee":201190,"feeLocal":null,"feeNote":"HK$6,490/学分 × 31学分","feeEst":false,"feeRef":"2026/27","open":"","dls":[],"note":"每年9月和1月两次入学；2027年9月入学的申请时间和截止日期官网未公布，官网提示非本地生名额有限、宜尽早申请；申请人或须参加英文面试","url":"https://www.speed-polyu.edu.hk/programme/master-of-science-in-sustainable-engineering-management","moi":"英文","moiAssumed":false,"cat":"工程","credits":31,"chk":"2026-11-17","sched":{"main":"白天、晚上、周末","note":"官网称平日及／或周末、日间及／或晚间上课，也可能集中授课"},"anyDisc":false,"bg":"计算机、工程、工商管理或相关专业","er":{"k":"std","v":"p"}},
 {"id":"speed-84619","sch":"speed","en":"Master of Arts in Digital Media Cultures and Design","zh":"数码媒体文化与设计文学硕士","zhRef":false,"code":"84619","fac":"社会科学、人文及设计学部","mode":"FT/PT","dur":"1年（兼读2年）","fee":201190,"feeLocal":null,"feeNote":"HK$6,490/学分 × 31学分","feeEst":false,"feeRef":"2026/27","open":"","dls":[],"note":"每年9月和1月两次入学；2027年9月入学的申请时间和截止日期官网未公布，官网提示非本地生名额有限、宜尽早申请；申请人或须参加英文面试","url":"https://www.speed-polyu.edu.hk/programme/master-of-arts-in-digital-media-cultures-and-design","moi":"英文","moiAssumed":false,"cat":"传媒","credits":31,"chk":"2026-11-17","sched":{"main":"白天、晚上、周末","note":"官网称平日及／或周末、日间及／或晚间上课，也可能集中授课"},"anyDisc":false,"bg":"文学、人文、中国研究、工商管理、管理、社会科学或相关领域","er":{"k":"std","v":"p"}},
-{"id":"speed-84618","sch":"speed","en":"Master of Arts in Global Arts Management","zh":"环球艺术管理文学硕士","zhRef":false,"code":"84618","fac":"社会科学、人文及设计学部","mode":"FT/PT","dur":"1年（兼读2年）","fee":201190,"feeLocal":null,"feeNote":"HK$6,490/学分 × 31学分","feeEst":false,"feeRef":"2026/27","open":"","dls":[],"note":"每年9月和1月两次入学；2027年9月入学的申请时间和截止日期官网未公布，官网提示非本地生名额有限、宜尽早申请；申请人或须参加英文面试","url":"https://www.speed-polyu.edu.hk/programme/master-of-arts-in-global-arts-management","moi":"英文","moiAssumed":false,"cat":"艺术","credits":31,"chk":"2026-11-17","sched":{"main":"白天、晚上、周末","note":"官网称平日及／或周末、日间及／或晚间上课，也可能集中授课"},"anyDisc":false,"bg":"文学、人文、中国研究、工商管理、管理、社会科学或相关领域","er":{"k":"std","v":"p"},"exp":{"t":"pref","note":"有艺术行政、画廊管理、文化政策等相关专业或义务工作经验者优先"}}
+{"id":"speed-84618","sch":"speed","en":"Master of Arts in Global Arts Management","zh":"环球艺术管理文学硕士","zhRef":false,"code":"84618","fac":"社会科学、人文及设计学部","mode":"FT/PT","dur":"1年（兼读2年）","fee":201190,"feeLocal":null,"feeNote":"HK$6,490/学分 × 31学分","feeEst":false,"feeRef":"2026/27","open":"","dls":[],"note":"每年9月和1月两次入学；2027年9月入学的申请时间和截止日期官网未公布，官网提示非本地生名额有限、宜尽早申请；申请人或须参加英文面试","url":"https://www.speed-polyu.edu.hk/programme/master-of-arts-in-global-arts-management","moi":"英文","moiAssumed":false,"cat":"艺术","credits":31,"chk":"2026-11-17","sched":{"main":"白天、晚上、周末","note":"官网称平日及／或周末、日间及／或晚间上课，也可能集中授课"},"anyDisc":false,"bg":"文学、人文、中国研究、工商管理、管理、社会科学或相关领域","er":{"k":"std","v":"p"},"exp":{"t":"pref","note":"有艺术行政、画廊管理、文化政策等相关专业或义务工作经验者优先"}},
+{"zhRef":true,"code":"","feeLocal":null,"feeEst":true,"open":"","dls":[],"moiAssumed":false,"chk":"2026-11-18","mode":"FT/PT","id":"thei-mbadt","sch":"thei","en":"Master of Business Administration in Digital Transformation","zh":"工商管理硕士（数码转型）","fac":"酒店及商业管理学系","cat":"商科与管理","dur":"1年","fee":300000,"feeNote":"按2027/28年度每学分HK$10,000 × 30学分估算（2026/27年度为每学分HK$9,000）","moi":"普通话","url":"https://thei.edu.hk/departments/department-of-hospitality-and-business-management/master-of-business-administration-in-digital-transformation/","anyDisc":false,"bg":"工商管理、资讯科技或科技相关学士学位；其他专业须有至少3年相关主管或管理经验","exp":{"t":"alt","y":3,"note":"非相关专业须有至少3年相关主管或管理工作经验"},"sched":{"main":"白天","note":"官网写明全日制须在平日白天上课"},"credits":30,"er":{"k":"nl","v":"p","n":"须符合普通话要求（任一项）：母语为普通话；本科或以上以普通话授课；在内地或其他普通话地区工作满3年；普通话水平测试三级乙等或以上；或面试评核"},"note":"官网目前显示的是2025年9月入学资料（2025年5月31日截止），2027年入学安排待公布；资历名册登记有效期至2026-08-31，续期情况待核实"},
+{"zhRef":true,"code":"","feeLocal":null,"feeEst":true,"open":"","dls":[],"moiAssumed":false,"chk":"2026-11-18","mode":"FT","id":"thei-msuf","sch":"thei","en":"Master of Science in Urban Forestry","zh":"城市林务理学硕士","fac":"建造、环境及工程学系","cat":"环境与可持续","dur":"1年","fee":300000,"feeNote":"按2027/28年度每学分HK$10,000 × 30学分估算（2026/27年度为每学分HK$9,000）","moi":"普通话（作业及考试以中文作答）","url":"https://thei.edu.hk/departments/department-of-construction-environment-and-engineering/master-of-science-in-urban-forestry/","anyDisc":false,"bg":"林学、生态、生物、园艺、农业、树艺、园境管理、地理、环境管理、环境科学等相关学士学位；其他专业须有至少3年主管或管理经验","exp":{"t":"alt","y":3,"note":"非相关专业须有至少3年主管或管理工作经验"},"sched":{"main":"白天","note":"每周五至周一连续四天白天上课"},"credits":30,"er":{"k":"nl","v":"p","n":"须符合普通话要求（任一项）：母语为普通话；本科或以上以普通话授课；在内地或其他普通话地区工作满3年；普通话水平测试三级乙等或以上；或面试评核"},"note":"2027年1月开课（修读期2027年1月至12月）；非本地申请已于2026-11-13截止，本地申请2026-12-18截止；2028年1月入学安排待公布"},
+{"zhRef":true,"code":"","feeLocal":null,"feeEst":true,"open":"","dls":[],"moiAssumed":false,"chk":"2026-11-18","mode":"FT/PT","id":"thei-msdthm","sch":"thei","en":"Master of Science in Digital Tourism and Hospitality Management","zh":"数码旅游及酒店管理理学硕士","fac":"酒店及商业管理学系","cat":"酒店与旅游","dur":"1年","fee":300000,"feeNote":"按2027/28年度每学分HK$10,000 × 30学分估算（2026/27年度为每学分HK$9,000）","moi":"普通话（作业及考试以中文作答）","url":"https://thei.edu.hk/departments/department-of-hospitality-and-business-management/master-of-science-in-digital-tourism-and-hospitality-management/","anyDisc":false,"bg":"相关学士学位；或任何学士学位加至少1年相关行业经验；或至少3年非相关行业主管经验","exp":{"t":"alt","y":1,"note":"非相关专业须有至少1年相关行业经验，或至少3年非相关行业主管经验"},"sched":{"main":"白天","note":"每周五至周一连续四天白天上课"},"credits":30,"er":{"k":"nl","v":"p","n":"须符合普通话要求（任一项）：母语为普通话；本科或以上以普通话授课；在内地或其他普通话地区工作满3年；普通话水平测试三级乙等或以上；或面试评核"},"note":"2026年9月入学的全日制申请已截止，2027年入学安排待公布；资历名册登记号26/000646/L6"},
+{"zhRef":true,"code":"","feeLocal":null,"feeEst":true,"open":"","dls":[],"moiAssumed":false,"chk":"2026-11-18","mode":"FT/PT","id":"thei-msose","sch":"thei","en":"Master of Science in Organisation of Sports Event","zh":"体育盛事组织理学硕士","fac":"体育及康乐学系","cat":"体育","dur":"1年","fee":300000,"feeNote":"按2027/28年度每学分HK$10,000 × 30学分估算（2026/27年度为每学分HK$9,000）","moi":"普通话","url":"https://thei.edu.hk/departments/department-of-sport-and-recreation/master-of-science-in-organisation-of-sports-event/","anyDisc":false,"bg":"体育、康乐、休闲、管理或运动科学学士学位；其他专业须有至少3年主管或管理经验","exp":{"t":"alt","y":3,"note":"非相关专业须有至少3年主管或管理工作经验"},"sched":{"main":"白天","note":"每周五至周一连续四天白天上课"},"credits":30,"er":{"k":"nl","v":"p","n":"须符合普通话要求（任一项）：母语为普通话；本科或以上以普通话授课；在内地或其他普通话地区工作满3年；普通话水平测试三级乙等或以上；或面试评核"},"note":"2027年1月开课（修读期2027年1月至12月）；全日制申请已于2026-09-30截止；2028年入学安排待公布"},
+{"zhRef":false,"code":"","feeLocal":120000,"feeEst":false,"open":"","dls":[],"moiAssumed":false,"chk":"2026-11-18","mode":"FT/PT","id":"hkct-msscc","sch":"hkct","en":"Master of Social Sciences (Career Counselling)","zh":"社会科学硕士（职涯辅导）","fac":"社会科学院","cat":"社会科学","dur":"1年（兼读2年）","fee":152550,"feeNote":"非本地生HK$152,550，本地生HK$120,000（2026/27年度，分两期缴交）","feeRef":"2026/27","moi":"英文，辅以中文","url":"https://www.hkct.edu.hk/en/programmes/humanities-and-social-sciences/master-of-social-sciences-career-counselling","anyDisc":true,"bg":"任何学科的认可学士学位，一般须二级荣誉或以上","er":{"k":"own","v":"p","i":6.5,"n":"本科非英文授课者须雅思6.5或同等成绩；须通过入学面试"},"nonLocal":false,"note":"官网写明硕士只招内地以外的非本地生，内地居民目前不能报读；2027年9月开课；资历名册登记号25/000370/L6"},
+{"zhRef":false,"code":"","feeLocal":120000,"feeEst":false,"open":"","dls":[],"moiAssumed":false,"chk":"2026-11-18","mode":"FT/PT","id":"hkct-msssm","sch":"hkct","en":"Master of Social Sciences (Social Service Management)","zh":"社会科学硕士（社会服务管理）","fac":"社会科学院","cat":"社会科学","dur":"1年（兼读2年）","fee":152550,"feeNote":"非本地生HK$152,550，本地生HK$120,000（2026/27年度，分两期缴交）","feeRef":"2026/27","moi":"英文，辅以中文","url":"https://www.hkct.edu.hk/en/programmes/humanities-and-social-sciences/master-of-social-sciences-social-service-management","anyDisc":true,"bg":"任何学科的认可学士学位，一般须二级荣誉或以上","er":{"k":"own","v":"p","i":6.5,"n":"本科非英文授课者须雅思6.5或同等成绩；须通过入学面试"},"nonLocal":false,"note":"官网写明硕士只招内地以外的非本地生，内地居民目前不能报读；2027年9月开课；资历名册登记号25/000371/L6"},
+{"zhRef":true,"code":"CF126101K","fac":"酒店及商业管理学系","mode":"FT","dur":"1年","fee":270000,"feeLocal":null,"feeNote":"HK$9,000/学分 × 30学分（2026/27年度学分学费，2027年入学学费待公布）","feeEst":true,"open":"","dls":[],"note":"课程页仍是2025年9月入学资料（当时2025-05-31截止），2027年入学安排官网未公布；全日制须平日日间上课；分数码商业与领导、数码科技与创新两个方向","moi":"普通话","moiAssumed":false,"chk":"2026-11-18","id":"thei-cf126101k","sch":"thei","en":"Master of Business Administration in Digital Transformation","zh":"数码转型工商管理硕士","cat":"商科与管理","url":"https://thei.edu.hk/departments/department-of-hospitality-and-business-management/master-of-business-administration-in-digital-transformation/","anyDisc":false,"bg":"工商管理、资讯科技或科技相关专业；其他专业须有至少3年相关主管或管理经验","exp":{"t":"alt","y":3,"note":"非相关专业者须有至少3年相关主管或管理经验，并交中文个人陈述、简历及推荐信"},"er":{"k":"nl","v":"p","n":"须符合普通话要求：母语为普通话，或本科以普通话授课，或在内地等普通话地区工作满3年，或普通话水平测试三级乙等以上，或面试时证明"},"credits":30},
+{"zhRef":true,"code":"ST126201K","fac":"建造、环境及工程学系","mode":"FT","dur":"1年","fee":270000,"feeLocal":null,"feeNote":"HK$9,000/学分 × 30学分（2026/27年度学分学费，2027年入学学费待公布）","feeEst":true,"open":"","dls":["2026-11-13"],"note":"2027年1月入学（2027年1月至12月），不是9月入学；非本地申请人2026-11-13截止，本地申请人2026-12-18截止；周五至周一连续四天日间上课","moi":"普通话（作业及考试用中文）","moiAssumed":false,"chk":"2026-11-18","id":"thei-st126201k","sch":"thei","en":"Master of Science in Urban Forestry","zh":"城市林务理学硕士","cat":"理学","url":"https://thei.edu.hk/departments/department-of-construction-environment-and-engineering/master-of-science-in-urban-forestry/","anyDisc":false,"bg":"林学、生态、生物、园艺、农业、树艺、园境、地理、环境管理、环境科学等相关专业；其他专业须有至少3年主管或管理经验","exp":{"t":"alt","y":3,"note":"非相关专业者须有至少3年主管或管理经验"},"er":{"k":"nl","v":"p","n":"须符合普通话要求：母语为普通话，或本科以普通话授课，或在内地等普通话地区工作满3年，或普通话水平测试三级乙等以上，或面试时证明"},"credits":30},
+{"zhRef":true,"code":"CF126102K","fac":"酒店及商业管理学系","mode":"FT","dur":"1年","fee":270000,"feeLocal":null,"feeNote":"HK$9,000/学分 × 30学分（2026/27年度学分学费，2027年入学学费待公布）","feeEst":true,"open":"","dls":[],"note":"2026年9月入学的全日制申请已截止，2027年入学安排官网未公布；周五至周一连续四天日间上课；须交中文个人陈述、简历及推荐信","moi":"普通话（作业及考试用中文）","moiAssumed":false,"chk":"2026-11-18","id":"thei-cf126102k","sch":"thei","en":"Master of Science in Digital Tourism and Hospitality Management","zh":"数码旅游及酒店管理理学硕士","cat":"商科与管理","url":"https://thei.edu.hk/departments/department-of-hospitality-and-business-management/master-of-science-in-digital-tourism-and-hospitality-management/","anyDisc":false,"bg":"相关专业；其他专业须有至少1年相关行业经验，或至少3年其他行业主管经验","exp":{"t":"alt","y":1,"note":"非相关专业者须有至少1年相关行业经验，或至少3年其他行业主管经验"},"er":{"k":"nl","v":"p","n":"须符合普通话要求：母语为普通话，或本科以普通话授课，或在内地等普通话地区工作满3年，或普通话水平测试三级乙等以上，或面试时证明"},"credits":30},
+{"zhRef":true,"code":"MH126102K","fac":"体育及康乐学系","mode":"FT","dur":"1年","fee":270000,"feeLocal":null,"feeNote":"HK$9,000/学分 × 30学分（2026/27年度学分学费，2027年入学学费待公布）","feeEst":true,"open":"","dls":["2026-09-30"],"note":"2027年1月入学（2027年1月至12月），不是9月入学；全日制申请2026-09-30已截止；周五至周一连续四天日间上课","moi":"普通话","moiAssumed":false,"chk":"2026-11-18","id":"thei-mh126102k","sch":"thei","en":"Master of Science in Organisation of Sports Event","zh":"体育盛事组织理学硕士","cat":"商科与管理","url":"https://thei.edu.hk/departments/department-of-sport-and-recreation/master-of-science-in-organisation-of-sports-event/","anyDisc":false,"bg":"体育、康乐、休闲、管理或运动科学相关专业；其他专业须有至少3年主管或管理经验","exp":{"t":"alt","y":3,"note":"非相关专业者须有至少3年主管或管理经验，并交中文个人陈述、简历及推荐信"},"er":{"k":"nl","v":"p","n":"须符合普通话要求：母语为普通话，或本科以普通话授课，或在内地等普通话地区工作满3年，或普通话水平测试三级乙等以上，或面试时证明"},"credits":30},
+{"zhRef":false,"code":"","fac":"社会科学院","mode":"FT","dur":"1年","fee":152550,"feeLocal":120000,"feeNote":"非本地生HK$152,550（分2期）；本地生HK$120,000；均为2026/27年度学费","feeEst":false,"open":"","dls":[],"note":"2027年9月入学；须通过入学面试；官网未列申请截止日期；香港首个职涯辅导硕士","moi":"英文，辅以中文","moiAssumed":false,"chk":"2026-11-18","id":"hkct-mss-cc","sch":"hkct","en":"Master of Social Sciences (Career Counselling)","zh":"社会科学硕士（职涯辅导）","feeRef":"2026/27","cat":"心理与社工","url":"https://www.hkct.edu.hk/en/programmes/humanities-and-social-sciences/master-of-social-sciences-career-counselling","anyDisc":true,"bg":"任何专业的认可学士学位，一般须二级荣誉或以上","er":{"k":"own","v":"p","i":6.5,"n":"本科非英文授课者须雅思6.5或同等公开英语成绩"}},
+{"zhRef":false,"code":"","fac":"社会科学院","mode":"FT","dur":"1年","fee":152550,"feeLocal":120000,"feeNote":"非本地生HK$152,550（分2期）；本地生HK$120,000；均为2026/27年度学费","feeEst":false,"open":"","dls":[],"note":"2027年9月入学；须通过入学面试；官网未列申请截止日期；资历名册登记号码25/000371/L6","moi":"英文，辅以中文","moiAssumed":false,"chk":"2026-11-18","id":"hkct-mss-ssm","sch":"hkct","en":"Master of Social Sciences (Social Service Management)","zh":"社会科学硕士（社会服务管理）","feeRef":"2026/27","cat":"心理与社工","url":"https://www.hkct.edu.hk/en/programmes/humanities-and-social-sciences/master-of-social-sciences-social-service-management","anyDisc":true,"bg":"任何专业的认可学士学位，一般须二级荣誉或以上","er":{"k":"own","v":"p","i":6.5,"n":"本科非英文授课者须雅思6.5或同等公开英语成绩"}},
+{"zhRef":false,"code":"MSHSM","fac":"管理学院","mode":"FT","dur":"1年","fee":212940,"feeLocal":170350,"feeNote":"2027/28年度全日制学费：非本地生HK$212,940，本地生HK$170,350","feeEst":false,"open":"2026-10-28","dls":[],"note":"2027/28年度全日制只设中文（普通话）授课班，英文班只有兼读制；官网未列申请截止日期；不修专题研究可以深造文凭毕业；资历名册登记号码26/000689/L6","moi":"普通话（中文评核）","moiAssumed":false,"chk":"2026-11-18","id":"twc-mshsm","sch":"twc","en":"Master of Smart Healthcare Services Management","zh":"智慧医疗服务管理硕士","cat":"医学与健康","url":"https://www.twc.edu.hk/tc/Programmes/mshsm","anyDisc":false,"bg":"医疗健康、资讯科技、管理或相关学科的学士学位","er":{"k":"nl","v":"p","n":"全日制中文班须符合普通话要求（母语为普通话、学历以普通话授课或评核，或普通话水平测试三级乙等以上）；英语成绩只适用于兼读制英文班"},"credits":27,"struct":{"core":6,"elec":1}},
+{"zhRef":false,"code":"","fac":"","mode":"FT/PT","dur":"1年（兼读2年）","fee":242800,"feeLocal":null,"feeNote":"官网列出全日制HK$242,800（分2期），未注明适用年度","feeEst":false,"open":"","dls":[],"note":"每年春季和秋季两次入学；毕业后不能凭此注册为教师，想取得幼儿园教师资格应读学位教师教育深造文凭；资历名册登记号码25/000391/L6","moi":"英文（另设中文授课班）","moiAssumed":false,"chk":"2026-11-18","id":"yccece-med","sch":"yccece","en":"Master of Education","zh":"教育硕士","cat":"教育","url":"https://www.yccece.edu.hk/en/master-of-education","anyDisc":true,"bg":"欢迎幼儿教育或教育专业，也欢迎非教育专业的学位持有人","er":{"k":"own","v":"p","i":6.5,"t":79,"n":"适用于英文授课班；中文授课班改为中文能力要求；也接受GMAT语文21或香港文凭试英文4级"}}
  ]
 }

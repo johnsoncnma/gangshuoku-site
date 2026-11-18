@@ -514,7 +514,7 @@ const FX = () => (D && D.fx && D.fx.rate) || 0;
 const rmbW = n => { const v = n * FX(); return (v / 10000).toFixed(1).replace(/\.0$/, "") + "万"; };
 const rmb = n => FX() ? `≈人民币${rmbW(n)}` : "";
 const rmbTag = n => FX() ? `<span class="rmb">${rmb(n)}</span>` : "";
-const rk = s => s.qs ? `QS ${s.qs}` : s.qsNote ? "不单独排名" : "QS未上榜";
+const rk = s => s.qs ? `QS ${s.qs}` : s.qsNote ? (s.type === "affil" ? "不单独排名" : "未参加QS排名") : "QS未上榜";
 const rkTag = s => `<span class="rk${s.qs ? "" : " no"}" title="${esc(D.rank ? D.rank.src : "QS世界大学排名")}">${rk(s)}</span>`;
 const schedTxt = p => { const c = p.sched; if (!c) return ""; return (c.main ? `主要在${c.main}` : "") + (c.also ? `；部分在${c.also}` : "") + (c.note ? `。${c.note}` : ""); };
 const schedShort = p => p.sched && p.sched.main ? `${p.sched.main}上课` : "";
@@ -812,7 +812,7 @@ function renderSchools() {
       const zh = ps.filter(isZh).length;
       const qsLong = s.qs && s.qs.length > 4;
       return `<article class="scard"><header><div><h3>${esc(s.zh)}</h3><div class="en">${esc(s.en)}</div></div>
-        <div class="qs${s.qs ? (qsLong ? " long" : "") : " no"}" title="${esc(D.rank ? D.rank.src : "QS世界大学排名")}"><span>QS排名</span><b>${s.qs ? esc(s.qs) : s.qsNote ? "不单独排名" : "未上榜"}</b></div></header>
+        <div class="qs${s.qs ? (qsLong ? " long" : "") : " no"}" title="${esc(D.rank ? D.rank.src : "QS世界大学排名")}"><span>QS排名</span><b>${s.qs ? esc(s.qs) : s.qsNote ? (s.type === "affil" ? "不单独排名" : "未参加") : "未上榜"}</b></div></header>
         <div class="sbody"><dl><dt>收录课程</dt><dd class="num">${ps.length} 个${zh ? `（中文授课 ${zh} 个）` : ""}</dd>
         <dt>学费范围</dt><dd>${fees.length ? `${wan(Math.min(...fees))}–${wan(Math.max(...fees))}港币<br><span class="muted" style="font-size:12px">约人民币${rmbW(Math.min(...fees))}–${rmbW(Math.max(...fees))}</span>` : "见官网"}</dd>
         <dt>英语要求</dt><dd>${esc(s.eng)}</dd>

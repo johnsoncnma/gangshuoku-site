@@ -664,8 +664,9 @@ function renderMatch(res, ctx) {
     : ctx.goal === "promo" || ctx.goal === "both" ? (okOf(b.key) > 0) - (okOf(a.key) > 0) || qsN(a) - qsN(b) || base(a, b) : base(a, b));
   const urgent = res.filter(r => r.p._s.k === "urgent").length;
   let banner = "";
-  if (ctx.edu === "ba-nodeg" || ctx.edu === "dz") {
-    banner = `<div class="banner warn"><b>${ctx.edu === "dz" ? "大专学历" : "没有学士学位证"}需要个别评估。</b> 各校官网的基本要求都是“学士学位或同等学历”，没有公开列明接受哪些非学位学历。下面按其他条件列出课程供参考，能否申请要逐所确认。<button class="btn cta" type="button" data-act="lead" style="margin-left:6px">提交背景评估</button></div>`;
+  const noDeg = ctx.edu === "ba-nodeg" || ctx.edu === "dz";
+  if (noDeg) {
+    banner = `<div class="banner warn"><b>${ctx.edu === "dz" ? "大专学历" : "没有学士学位证"}不符合官网列出的基本学历要求。</b> 各校官网的要求都是“学士学位或同等学历”，没有公开列明接受大专等非学位学历。下面的课程只是按专业、预算、英语等其他条件列出，不代表可以直接申请，能否申请要逐所向学校确认。<button class="btn cta" type="button" data-act="lead" style="margin-left:6px">提交背景评估</button></div>`;
   }
   if (ctx.goal === "id" || ctx.goal === "both") banner += `<div class="banner">为了香港身份：读本地全日制课程（修读期至少一学年），毕业后6个月内可申请IANG，不需工作合约即可留港24个月。下面只列可全日制修读的课程${ctx.goal === "id" ? "，学校按学费从低到高排列" : ""}。</div>`;
   if (ctx.goal === "promo" || ctx.goal === "both") banner += `<div class="banner">为了职务升迁：学校名气通常更受用人单位看重，下面的学校按QS世界大学排名从高到低排列（英语已达标的学校排前）。</div>`;
@@ -686,9 +687,9 @@ function renderMatch(res, ctx) {
     </article>`;
   }).join("");
   $("#mresult").innerHTML = `
-    <div class="res-head"><h2>可以考虑的学校和专业</h2><span class="muted" style="font-size:13px">按官网最低条件筛选，已排除已截止课程</span></div>
+    <div class="res-head"><h2>${noDeg ? "供参考的学校和专业（学历要求未达标）" : "可以考虑的学校和专业"}</h2><span class="muted" style="font-size:13px">${noDeg ? "官网要求学士学位或同等学历，以下课程没有按学历筛选" : "按官网最低条件筛选，已排除已截止课程"}</span></div>
     <div class="kpis">
-      <div class="kpi"><b class="num">${res.length}</b><span>符合基本条件的课程</span></div>
+      <div class="kpi"><b class="num">${res.length}</b><span>${noDeg ? "其他条件相符的课程（学历须个别确认）" : "符合基本条件的课程"}</span></div>
       <div class="kpi"><b class="num">${schools.length}</b><span>涉及学校</span></div>
       <div class="kpi"><b class="num">${ok.length}</b><span>英语已达标</span></div>
       <div class="kpi"><b class="num" style="color:var(--urgent)">${urgent}</b><span>30天内截止</span></div>

@@ -631,7 +631,7 @@ function runMatch() {
   const over = $("#m-over").checked, moi = M.moi || "", work = $("#m-work").value, goal = M.goal || "";
   const br = budRange(), lo = br ? br[0] : 0, budget = br ? br[1] : 0;
   const cap = br ? (over ? budget * 1.3 : budget) : Infinity;
-  const res = [];
+  const res = []; let engOut = 0;
   for (const p of D.programmes) {
     if (p._s.k === "closed") continue;
     if (!p.mode.includes("FT") || p.nonLocal === false) continue;
@@ -643,16 +643,28 @@ function runMatch() {
     if (moi === "zh" && !isZh(p)) continue;
     if (p.fee && (p.fee > cap || p.fee < lo)) continue;
     const e = engCheck(p, et, es);
+    if (e.k === "no") { engOut++; continue; }
     const flags = [e];
     if (!p.fee) flags.push({ k: "q", t: "学费待确认" });
     else if (br && p.fee > budget) flags.push({ k: "q", t: `超预算约人民币${rmbW(p.fee - budget)}` });
     if (xf) flags.push(xf);
     res.push({ p, flags, eok: e.k === "ok", score: (e.k === "ok" ? 0 : e.k === "q" ? 1 : 2) });
   }
-  renderMatch(res, { edu, et, budget, goal });
+  renderMatch(res, { edu, et, budget, goal, engOut });
   try { sessionStorage.setItem("hk-match", JSON.stringify({ edu, et, es, budget: $("#m-budget").value, over, moi, work, goal, cats: [...M.cats], types: [...M.types] })); } catch (e) {}
 }
+function renderNoDeg(ctx) {
+  const dz = ctx.edu === "dz";
+  $("#mresult").innerHTML = `
+    <div class="res-head"><h2>${dz ? "大专学历暂时没有可以直接申请的硕士" : "没有学士学位证暂时没有可以直接申请的硕士"}</h2></div>
+    <div class="banner warn"><b>本站收录的硕士，官网的入学要求都是“学士学位或同等学历”。</b> 目前没有课程在官网写明接受${dz ? "大专" : "没有学位证的本科"}学历，所以这里不列出课程，避免误导。</div>
+    <div class="banner"><b>可以考虑的路线：</b><br>
+      ${dz ? "1. 先来香港读衔接学士（一般1.5–2年，取得本地颁授的学士学位后可申请IANG）。<br>2. 先在内地专升本，取得学士学位后再申请香港硕士。<br>3. 个别课程会按“同等学历”个别审核有多年相关工作经验的申请人，需要逐所向学校确认。" : "1. 先补齐学士学位证，再申请香港硕士。<br>2. 个别课程会按“同等学历”个别审核，需要逐所向学校确认。"}<br>
+      <span class="muted" style="font-size:12.5px">与海外大学合办、由海外大学颁授学位的衔接课程，毕业后不能申请IANG，选择时要看清学位由谁颁授。</span></div>
+    <div class="consult"><div><b>想知道你的情况适合哪条路线？</b><p>提交学校、专业和工作年限，我们按你的背景逐所确认。</p></div><button class="btn cta" type="button" data-act="lead">提交背景，免费评估</button></div>`;
+}
 function renderMatch(res, ctx) {
+  if (ctx.edu === "ba-nodeg" || ctx.edu === "dz") return renderNoDeg(ctx);
   const ok = res.filter(r => r.eok), bySch = {};
   res.forEach(r => (bySch[r.p.sch] = bySch[r.p.sch] || []).push(r));
   const okOf = k => bySch[k].filter(r => r.eok).length;
@@ -670,7 +682,8 @@ function renderMatch(res, ctx) {
   }
   if (ctx.goal === "id" || ctx.goal === "both") banner += `<div class="banner">为了香港身份：读本地全日制课程（修读期至少一学年），毕业后6个月内可申请IANG，不需工作合约即可留港24个月。下面只列可全日制修读的课程${ctx.goal === "id" ? "，学校按学费从低到高排列" : ""}。</div>`;
   if (ctx.goal === "promo" || ctx.goal === "both") banner += `<div class="banner">为了职务升迁：学校名气通常更受用人单位看重，下面的学校按QS世界大学排名从高到低排列（英语已达标的学校排前）。</div>`;
-  if (ctx.et === "none") banner += `<div class="banner warn">还没有英语成绩时，除了中文授课、只要求中文能力的课程，多数课程需要先考雅思或托福。下面标出了每所学校的最低分。</div>`;
+  if (ctx.et === "none") banner += `<div class="banner warn">还没有英语成绩时，下面只列出不要求英语考试成绩的课程。多数课程需要先考雅思或托福，有成绩后重新筛选可以看到更多。</div>`;
+  if (ctx.engOut) banner += `<div class="banner">另有 ${ctx.engOut} 个课程因为英语成绩未达到官网要求，没有列出。</div>`;
   const groups = schools.map(s => {
     const rs = bySch[s.key].sort((a, b) => a.score - b.score || a.p._s.order - b.p._s.order || a.p._s.t - b.p._s.t);
     const okN = rs.filter(r => r.eok).length;
@@ -687,15 +700,15 @@ function renderMatch(res, ctx) {
     </article>`;
   }).join("");
   $("#mresult").innerHTML = `
-    <div class="res-head"><h2>${noDeg ? "供参考的学校和专业（学历要求未达标）" : "可以考虑的学校和专业"}</h2><span class="muted" style="font-size:13px">${noDeg ? "官网要求学士学位或同等学历，以下课程没有按学历筛选" : "按官网最低条件筛选，已排除已截止课程"}</span></div>
+    <div class="res-head"><h2>可以考虑的学校和专业</h2><span class="muted" style="font-size:13px">按官网最低条件筛选，已排除已截止和英语未达标的课程</span></div>
     <div class="kpis">
-      <div class="kpi"><b class="num">${res.length}</b><span>${noDeg ? "其他条件相符的课程（学历须个别确认）" : "符合基本条件的课程"}</span></div>
+      <div class="kpi"><b class="num">${res.length}</b><span>符合基本条件的课程</span></div>
       <div class="kpi"><b class="num">${schools.length}</b><span>涉及学校</span></div>
-      <div class="kpi"><b class="num">${ok.length}</b><span>英语已达标</span></div>
+      <div class="kpi"><b class="num">${ok.length}</b><span>英语已确认达标</span></div>
       <div class="kpi"><b class="num" style="color:var(--urgent)">${urgent}</b><span>30天内截止</span></div>
     </div>
     ${banner}
-    ${res.length ? groups : `<div class="empty">没有符合条件的课程。可以放宽预算、增加专业方向，或调整工作年限。</div>`}
+    ${res.length ? groups : `<div class="empty">没有符合条件的课程。可以放宽预算、增加专业方向、调整工作年限，或补充英语成绩后再试。</div>`}
     <div class="consult"><div><b>想知道哪些学校录取机会更大？</b><p>录取会看本科院校背景、均分和材料，这些官网不公布分数线。</p></div><button class="btn cta" type="button" data-act="lead">提交背景，免费评估</button></div>`;
 }
 function mrowHTML(r) {

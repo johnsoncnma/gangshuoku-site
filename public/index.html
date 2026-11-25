@@ -156,6 +156,7 @@ textarea.field{min-height:76px}
 .sgroup h3 .rk,.sgroup h3 .typetag,.tags .rk{margin-left:0}
 .mrow{display:grid;grid-template-columns:minmax(0,1fr) 136px 150px;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line)}
 .mrow:first-of-type{border-top:0}
+.mrow+.detail{border-radius:0}
 .mrow .nm{font-weight:700;font-size:15px;line-height:1.4;overflow-wrap:anywhere}
 .mrow .en{font-size:12px;color:var(--muted);line-height:1.45;margin-top:1px;overflow-wrap:anywhere}
 .flags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
@@ -718,7 +719,7 @@ function mrowHTML(r) {
       ${p.zh && p.en ? `<div class="en">${esc(p.en)}</div>` : ""}
       <div class="flags">${r.flags.map(f => `<span class="flag ${f.k}">${esc(f.t)}</span>`).join("")}<span class="flag n">${esc(p.cat)}</span>${p.moi ? `<span class="flag n">${esc(p.moi)}授课</span>` : ""}${schedShort(p) ? `<span class="flag n">${esc(schedShort(p))}</span>` : ""}</div></div>
     <div class="cell fee">${p.fee ? `<b class="num">${money(p.fee)}</b>${(p.feeEst ? '<span class="est">估</span>' : "") + (p.feeRef ? `<span class="est" title="参考${p.feeRef}学年学费">${p.feeRef.slice(2)}</span>` : "")}${rmbTag(p.fee)}` : '<span class="muted">学费未公布</span>'}<small>${esc(p.dur || "")}</small></div>
-    <div class="cell dl">${pillHTML(p._s)}<div style="margin-top:7px"><button class="btn soft" type="button" data-act="ask" data-id="${esc(p.id)}">咨询这个课程</button></div></div>
+    <div class="cell dl">${pillHTML(p._s)}<div style="margin-top:7px;display:flex;flex-wrap:wrap;gap:6px"><button class="btn" type="button" data-act="mdetail" data-id="${esc(p.id)}" aria-expanded="false">详情</button><button class="btn soft" type="button" data-act="ask" data-id="${esc(p.id)}">咨询这个课程</button></div></div>
   </div>`;
 }
 
@@ -998,7 +999,8 @@ document.addEventListener("click", e => {
   const b = t.closest("[data-act]");
   if (b) {
     const a = b.dataset.act, id = b.dataset.id, p = id && D.programmes.find(x => x.id === id);
-    if (a === "detail") { openRows.has(id) ? openRows.delete(id) : openRows.add(id); renderList(false); }
+    if (a === "mdetail" && p) { const row = b.closest(".mrow"), nx = row.nextElementSibling, on = nx && nx.classList.contains("detail"); if (on) nx.remove(); else row.insertAdjacentHTML("afterend", detailHTML(p)); b.setAttribute("aria-expanded", !on); b.textContent = on ? "详情" : "收起"; }
+    else if (a === "detail") { openRows.has(id) ? openRows.delete(id) : openRows.add(id); renderList(false); }
     else if (a === "cmp") { if (cmp.has(id)) cmp.delete(id); else if (cmp.size < 4) cmp.add(id); else return; renderList(false); renderCmpBar(); }
     else if (a === "ask") leadForm(p);
     else if (a === "lead") leadForm(null);

@@ -323,10 +323,91 @@
  },
  "engAudit": {
   "date": "2026-11-25",
-  "byPage": 733,
+  "byPage": 731,
   "byRule": 15,
   "pending": 9
  },
+ "unsure": [
+  {
+   "id": "hku-master-of-science-in-computer-science-ai-and-decentralized-technologie",
+   "sch": "hku",
+   "zh": "计算机科学理学硕士（AI与去中心化技术方向，首学期在上海）",
+   "en": "Master of Science in Computer Science (AI & Decentralized Technologies Stream), with Delta X Fellowship",
+   "url": "https://master.cds.hku.hk/msccs",
+   "reason": "学院网站写明这个方向设有香港、上海两地学期，在上海多久没有写。入境处的IANG说明没有写明这类课程是否符合资格。",
+   "since": "2026-11-25",
+   "ask": "向入境处或学校确认：读完这个课程的非本地生能否申请IANG",
+   "p": {
+    "id": "hku-master-of-science-in-computer-science-ai-and-decentralized-technologie",
+    "sch": "hku",
+    "en": "Master of Science in Computer Science (AI & Decentralized Technologies Stream), with Delta X Fellowship",
+    "zh": "计算机科学理学硕士（AI与去中心化技术方向，首学期在上海）",
+    "zhRef": true,
+    "code": "MSc(CompSc)",
+    "fac": "计算与数据科学学院",
+    "mode": "FT",
+    "dur": "1年",
+    "fee": 375000,
+    "feeLocal": 275000,
+    "dls": [
+     "2026-12-01",
+     "2027-04-30"
+    ],
+    "note": "学院网站写明这个方向设有香港、上海两地学期。入境处的IANG说明没有写明部分学期在香港以外修读的课程是否符合资格，留港资格须向入境处确认",
+    "url": "https://master.cds.hku.hk/msccs",
+    "feeNote": "",
+    "feeEst": false,
+    "open": "",
+    "moi": "英文",
+    "moiAssumed": true,
+    "cat": "计算机与AI",
+    "er": {
+     "k": "std",
+     "v": "c"
+    },
+    "chk": "2026-11-25"
+   }
+  },
+  {
+   "id": "hkust-msc-gmrm",
+   "sch": "hkust",
+   "zh": "理学硕士（环球海洋资源管理）",
+   "en": "MSc in Global Marine Resources Management",
+   "url": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-gmrm",
+   "reason": "与英国南安普顿大学合办的双学位，秋季学期在南安普顿上课，只有春季和夏季学期在香港。入境处的IANG说明没有写明这类课程是否符合资格。",
+   "since": "2026-11-25",
+   "ask": "向入境处或学校确认：读完这个课程的非本地生能否申请IANG",
+   "p": {
+    "id": "hkust-msc-gmrm",
+    "sch": "hkust",
+    "en": "MSc in Global Marine Resources Management",
+    "zh": "理学硕士（环球海洋资源管理）",
+    "code": "",
+    "fac": "理学院",
+    "mode": "FT",
+    "dur": "1年",
+    "fee": 140000,
+    "dls": [
+     "2027-06-01"
+    ],
+    "note": "与英国南安普顿大学合办的双学位，两校各发一张证书；秋季学期在南安普顿上课，春季和夏季学期在港科大。入境处的IANG说明没有写明部分学期在香港以外修读的课程是否符合资格，留港资格须向入境处确认。学费分别向两校缴付，详见官网",
+    "url": "https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-gmrm",
+    "zhRef": false,
+    "feeLocal": null,
+    "feeNote": "另须向南安普顿大学缴付£10,000（非英国学生）；此处只计港科大部分",
+    "open": "",
+    "moi": "英文",
+    "moiAssumed": false,
+    "cat": "商科与管理",
+    "credits": 45,
+    "chk": "2026-11-25",
+    "er": {
+     "k": "std",
+     "v": "p"
+    }
+   }
+  }
+ ],
  "programmes": [
 {"id":"hku-juris-doctor-law","sch":"hku","en":"Juris Doctor","zh":"法律博士（JD）","zhRef":true,"code":"JD","fac":"法律学院","mode":"FT","dur":"2年","fee":628000,"feeLocal":null,"dls":["2026-11-27","2027-01-29"],"note":"2027年8月开课","url":"https://portal.hku.hk/tpg-admissions/programme-details?programme=juris-doctor-law&mode=0","feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":true,"cat":"法律","er":{"k":"own","v":"p","i":7.5,"sub":"各项不低于7","t":100,"tn":5.5},"chk":"2026-11-25"},
 {"id":"hku-master-of-common-law-law","sch":"hku","en":"Master of Common Law","zh":"普通法硕士","zhRef":true,"code":"MCL","fac":"法律学院","mode":"FT","dur":"1年","fee":270000,"feeLocal":null,"dls":["2026-12-04","2027-02-26"],"note":"","url":"https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-common-law-law&mode=0","feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":true,"cat":"法律","er":{"k":"own","v":"p","i":7.0,"sub":"各项不低于5.5","t":100}},
@@ -436,7 +517,6 @@
 {"id":"hku-master-of-science-in-technology-design-and-leadership-for-learning-edu","sch":"hku","en":"Master of Science in Technology, Design and Leadership for Learning","zh":"学习科技、设计与领导理学硕士","zhRef":true,"code":"MSc(TDLL)","fac":"教育学院","mode":"FT","dur":"1年","fee":234000,"feeLocal":null,"dls":["2027-01-22"],"note":"学费待公布","url":"https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-technology%2C-design-and-leadership-for-learning-edu&mode=0","feeNote":"参考2026-27年度学费（港大学费表）；2027-28官网标“待公布”","open":"","moi":"英文","moiAssumed":true,"cat":"教育","feeRef":"2026/27","chk":"2026-11-15","er":{"k":"std","v":"p"}},
 {"id":"hku-master-of-data-science-cds","sch":"hku","en":"Master of Data Science","zh":"数据科学硕士","zhRef":true,"code":"MDASC","fac":"计算与数据科学学院","mode":"FT","dur":"1.5年","fee":369000,"feeLocal":339000,"dls":["2026-12-01","2027-04-30"],"note":"","url":"https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-data-science-cds&mode=0","feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":true,"cat":"计算机与AI","er":{"k":"std","v":"c"},"chk":"2026-11-25"},
 {"id":"hku-master-of-science-in-computer-science-general-cyber-security-financial","sch":"hku","en":"Master of Science in Computer Science (General, Cyber Security, Financial Computing and Multimedia Computing Streams)","zh":"计算机科学理学硕士","zhRef":true,"code":"MSc(CompSc)","fac":"计算与数据科学学院","mode":"FT","dur":"1年","fee":375000,"feeLocal":275000,"dls":["2026-12-01","2027-04-30"],"note":"","url":"https://master.cds.hku.hk/msccs","feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":true,"cat":"计算机与AI","er":{"k":"std","v":"c"},"chk":"2026-11-25"},
-{"id":"hku-master-of-science-in-computer-science-ai-and-decentralized-technologie","sch":"hku","en":"Master of Science in Computer Science (AI & Decentralized Technologies Stream), with Delta X Fellowship","zh":"计算机科学理学硕士（AI与去中心化技术方向，首学期在上海）","zhRef":true,"code":"MSc(CompSc)","fac":"计算与数据科学学院","mode":"FT","dur":"1年","fee":375000,"feeLocal":275000,"dls":["2026-12-01","2027-04-30"],"note":"学院网站写明这个方向设有香港、上海两地学期。入境处的IANG说明没有写明部分学期在香港以外修读的课程是否符合资格，留港资格须向入境处确认","url":"https://master.cds.hku.hk/msccs","feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":true,"cat":"计算机与AI","er":{"k":"std","v":"c"},"chk":"2026-11-25"},
 {"id":"hku-master-of-science-in-electronic-commerce-and-internet-computing-cds","sch":"hku","en":"Master of Science in Electronic Commerce and Internet Computing","zh":"电子商贸及互联网计算理学硕士","zhRef":true,"code":"MSc(ECom&IComp)","fac":"计算与数据科学学院","mode":"FT","dur":"1年","fee":375000,"feeLocal":275000,"dls":["2026-12-01","2027-04-30"],"note":"","url":"https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-electronic-commerce-and-internet-computing-cds&mode=0","feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":true,"cat":"计算机与AI","sched":{"main":"晚上、周末","also":"白天"},"credits":72,"er":{"k":"std","v":"c"},"chk":"2026-11-25"},
 {"id":"hku-master-of-statistics-cds","sch":"hku","en":"Master of Statistics","zh":"统计学硕士","zhRef":true,"code":"MStat","fac":"计算与数据科学学院","mode":"FT","dur":"1年","fee":265000,"feeLocal":245000,"dls":["2026-12-01","2027-04-30"],"note":"","url":"https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-statistics-cds&mode=0","feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":true,"cat":"理学","er":{"k":"std","v":"c"},"chk":"2026-11-25"},
 {"id":"hku-master-of-science-in-community-dentistry-facdent","sch":"hku","en":"Master of Science in Community Dentistry","zh":"社区牙科理学硕士","zhRef":true,"code":"MSc(CommunityDent)","fac":"牙医学院","mode":"FT","dur":"1年","fee":363000,"feeLocal":null,"dls":["2027-01-29"],"note":"学费有待大学批准","url":"https://portal.hku.hk/tpg-admissions/programme-details?programme=master-of-science-in-community-dentistry-facdent&mode=0","feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":true,"cat":"医学与健康","er":{"k":"std","v":"c"}},
@@ -578,7 +658,6 @@
 {"id":"hkust-msc-mafm","sch":"hkust","en":"MSc in Financial Mathematics","zh":"理学硕士（金融数学）","code":"","fac":"理学院","mode":"FT/PT","dur":"1.5年","fee":300000,"dls":["2027-04-30"],"note":"","url":"https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-mafm","zhRef":false,"feeLocal":null,"feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":false,"cat":"商科与管理","credits":36,"er":{"k":"std","v":"p"}},
 {"id":"hkust-msc-maed","sch":"hkust","en":"MSc in Mathematics for Educators","zh":"理学硕士（教育数学）","code":"","fac":"理学院","mode":"FT/PT","dur":"1年","fee":175000,"dls":["2027-06-01"],"note":"本地申请人截止2027-07-15","url":"https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-maed","zhRef":false,"feeLocal":null,"feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":false,"cat":"教育","credits":27,"er":{"k":"std","v":"p"}},
 {"id":"hkust-msc-ehs","sch":"hkust","en":"MSc in Environmental Health and Safety","zh":"理学硕士（环境健康及安全）","code":"","fac":"理学院","mode":"FT/PT","dur":"1年","fee":175000,"dls":["2027-06-01"],"note":"本地申请人截止2027-07-15","url":"https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ehs","zhRef":false,"feeLocal":null,"feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":false,"cat":"医学与健康","credits":30,"er":{"k":"std","v":"p"}},
-{"id":"hkust-msc-gmrm","sch":"hkust","en":"MSc in Global Marine Resources Management","zh":"理学硕士（环球海洋资源管理）","code":"","fac":"理学院","mode":"FT","dur":"1年","fee":140000,"dls":["2027-06-01"],"note":"与英国南安普顿大学合办的双学位，两校各发一张证书；秋季学期在南安普顿上课，春季和夏季学期在港科大。入境处的IANG说明没有写明部分学期在香港以外修读的课程是否符合资格，留港资格须向入境处确认。学费分别向两校缴付，详见官网","url":"https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-gmrm","zhRef":false,"feeLocal":null,"feeNote":"另须向南安普顿大学缴付£10,000（非英国学生）；此处只计港科大部分","open":"","moi":"英文","moiAssumed":false,"cat":"商科与管理","credits":45,"chk":"2026-11-25","er":{"k":"std","v":"p"}},
 {"id":"hkust-msc-ddm","sch":"hkust","en":"MSc in Data-Driven Modeling","zh":"理学硕士（数据建模）","code":"","fac":"理学院","mode":"FT/PT","dur":"1年","fee":286000,"dls":["2026-11-01","2027-02-15","2027-04-15"],"note":"","url":"https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-ddm","zhRef":false,"feeLocal":null,"feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":false,"cat":"计算机与AI","credits":31,"er":{"k":"std","v":"p"}},
 {"id":"hkust-msc-phys","sch":"hkust","en":"MSc in Physics","zh":"理学硕士（物理学）","code":"","fac":"理学院","mode":"FT/PT","dur":"1年","fee":190000,"dls":["2027-06-01"],"note":"本地申请人截止2027-07-15","url":"https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-phys","zhRef":false,"feeLocal":null,"feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":false,"cat":"理学","exp":{"t":"alt","y":2,"note":"其他学科本科者须有至少2年相关全职工作经验"},"credits":25,"er":{"k":"std","v":"p"}},
 {"id":"hkust-msc-fintech","sch":"hkust","en":"MSc in Financial Technology","zh":"理学硕士（金融科技）","code":"","fac":"工学院／工商管理学院","mode":"FT/PT","dur":"1年","fee":405000,"dls":["2026-12-01","2027-03-01"],"note":"","url":"https://prog-crs.hkust.edu.hk/pgprog/2027-28/msc-fintech","zhRef":false,"feeLocal":null,"feeNote":"","feeEst":false,"open":"","moi":"英文","moiAssumed":false,"cat":"计算机与AI","exp":{"t":"pref","y":2,"note":"兼读制强烈建议有至少2年全职工作经验"},"credits":30,"er":{"k":"std","v":"p"},"chk":"2026-11-25"},

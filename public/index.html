@@ -157,6 +157,16 @@ textarea.field{min-height:76px}
 .mrow{display:grid;grid-template-columns:minmax(0,1fr) 136px 150px;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line)}
 .mrow:first-of-type{border-top:0}
 .mrow+.detail{border-radius:0}
+.lnk{border:0;background:none;padding:0;color:var(--accent);font-size:12.5px;font-weight:650;text-decoration:underline;text-underline-offset:2px;text-align:left}
+.hq{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.hq button{border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.09);color:var(--on-brand);border-radius:999px;padding:7px 13px;font-size:13.5px;line-height:1.45;font-weight:600}
+.hq button b{font-variant-numeric:tabular-nums}
+.how{margin-top:30px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:16px}
+.how h2{margin:0 0 4px;font-size:18px;font-weight:800}
+.how ol{margin:12px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px 18px;counter-reset:how}
+.how li{counter-increment:how;font-size:13.5px;line-height:1.65;color:var(--muted)}
+.how li b{display:block;color:var(--ink);font-size:14.5px}
+.how li b::before{content:counter(how) ". "}
 .mrow .nm{font-weight:700;font-size:15px;line-height:1.4;overflow-wrap:anywhere}
 .mrow .en{font-size:12px;color:var(--muted);line-height:1.45;margin-top:1px;overflow-wrap:anywhere}
 .flags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
@@ -314,6 +324,11 @@ tr:last-child td,tr:last-child th{border-bottom:0}
       <div>
         <h1>你的背景，能申请香港哪些硕士？</h1>
         <p class="hero-sub" id="sum-line">学费、英语要求和截止日期逐项对照各校官网，每天核对。数据加载中……</p>
+        <div class="hq" id="hq" hidden>
+          <button type="button" data-act="zhnoeng">没有英语成绩：<b id="hq-n"></b> 个课程不设英语考试要求</button>
+          <button type="button" data-act="cheaplist">预算有限：按学费从低到高看</button>
+          <button type="button" data-act="nodeg">专科或没有学位证：看可走的路线</button>
+        </div>
       </div>
       <aside class="dl-card" id="h-urgent" aria-label="即将截止的课程" hidden>
         <div class="dl-head"><span class="dot" aria-hidden="true"></span><span id="h-urgent-t"></span></div>
@@ -479,6 +494,18 @@ tr:last-child td,tr:last-child th{border-bottom:0}
     <p class="fine" style="margin-top:8px">学费为非本地生全程学费，标“估”的是按官网每学分学费估算。标“参考译名”的中文课程名是本站翻译，官方名称以英文为准。截止日期默认显示非本地申请人适用的日期，多数课程滚动录取，额满会提前截止。英语要求为学校通用最低标准，部分课程更高；本科为全英文授课的申请人通常可以豁免。</p>
   </section>
 
+  <section class="how" aria-labelledby="how-h">
+    <h2 id="how-h">自己申请有困难时，我们能做什么</h2>
+    <p class="muted" style="margin:0;font-size:13.5px;line-height:1.65">上面的信息都可以免费查，能自己申请的不必找我们。学历、英语或专业卡住，或者没时间准备的，可以按下面的步骤来。</p>
+    <ol>
+      <li><b>免费评估背景</b>留下学校、专业和证书情况，我们按官网要求核对你能申请哪些课程。</li>
+      <li><b>确定学校和专业</b>按你的预算、英语和读书目的，把可申请的课程缩小到几个，说明各自的要求和截止日期。</li>
+      <li><b>准备并递交材料</b>列出每个课程要的材料，协助整理文书，在截止前完成网上申请。</li>
+      <li><b>跟进到出结果</b>跟进学校的补件和面试通知，直到学校给出结果。</li>
+    </ol>
+    <p class="muted" style="margin:12px 0 0;font-size:12.5px;line-height:1.65">录取由学校决定，我们不承诺录取结果。<button class="lnk" type="button" data-act="lead" style="margin-left:6px">提交背景，免费评估</button></p>
+  </section>
+
   <footer class="foot">
     <p><strong>香港硕士申请信息库</strong>不是任何院校的官方网站，与各院校没有隶属或授权关系。</p>
     <p>学费、入学要求和截止日期整理自各校官网，每天核对一次。院校可能随时调整，申请前请以官网为准。世界排名采用 QS 世界大学排名 2027。</p>
@@ -591,6 +618,7 @@ function engCheck(p, t, score) {
   return { k: "q", t: "英语要求需确认" };
 }
 const WRANGE = { "0": [0, 0], "0.5": [0, 1], "1": [1, 2], "2": [2, 5], "5": [5, 99] };
+const noEngZh = () => D.programmes.filter(p => (!p.mode || p.mode.includes("FT")) && p.nonLocal !== false && isZh(p) && !p.moi.includes("英") && p.er && (p.er.k === "none" || p.er.k === "nl"));
 function discTxt(p) {
   if (p.anyDisc === true) return "<b>可以</b>，" + (p.bg ? esc(p.bg) : "课程页写明不限本科专业");
   if (p.anyDisc === false) return "<b>须相关专业背景</b>" + (p.bg ? "：" + esc(p.bg) : "（见课程页）");
@@ -659,10 +687,11 @@ function renderNoDeg(ctx) {
   $("#mresult").innerHTML = `
     <div class="res-head"><h2>${dz ? "大专学历暂时没有可以直接申请的硕士" : "没有学士学位证暂时没有可以直接申请的硕士"}</h2></div>
     <div class="banner warn"><b>本站收录的硕士，官网的入学要求都是“学士学位或同等学历”。</b> 目前没有课程在官网写明接受${dz ? "大专" : "没有学位证的本科"}学历，所以这里不列出课程，避免误导。</div>
+    <div class="consult" style="margin:0 0 12px"><div><b>是否接受“同等学历”，要逐个课程向学校确认</b><p>把毕业学校、专业和工作年限发给我们，我们按你的背景逐所去问，告诉你哪些课程值得申请。评估免费，录取由学校决定。</p></div><button class="btn cta" type="button" data-act="lead">提交背景，免费评估</button></div>
     <div class="banner"><b>可以考虑的路线：</b><br>
       ${dz ? "1. 先来香港读衔接学士（一般1.5–2年，取得本地颁授的学士学位后可申请IANG）。<br>2. 先在内地专升本，取得学士学位后再申请香港硕士。<br>3. 个别课程会按“同等学历”个别审核有多年相关工作经验的申请人，需要逐所向学校确认。<br>4. 读职业训练局（VTC）的指定全日制高级文凭，毕业后走“职专毕业生留港计划”。这不是IANG：头4年必须做与所学专业相关的全职工作；而且入境处目前公布的适用范围只到2025/26学年入学，2027年入学是否适用尚未公布，报读前要先确认。" : "1. 先补齐学士学位证，再申请香港硕士。<br>2. 个别课程会按“同等学历”个别审核，需要逐所向学校确认。"}<br>
       <span class="muted" style="font-size:12.5px">与海外大学合办、由海外大学颁授学位的衔接课程，毕业后不能申请IANG，选择时要看清学位由谁颁授。</span></div>
-    <div class="consult"><div><b>想知道你的情况适合哪条路线？</b><p>提交学校、专业和工作年限，我们按你的背景逐所确认。</p></div><button class="btn cta" type="button" data-act="lead">提交背景，免费评估</button></div>`;
+`;
 }
 function renderMatch(res, ctx) {
   if (ctx.edu === "ba-nodeg" || ctx.edu === "dz") return renderNoDeg(ctx);
@@ -683,8 +712,8 @@ function renderMatch(res, ctx) {
   }
   if (ctx.goal === "id" || ctx.goal === "both") banner += `<div class="banner">为了香港身份：读本地全日制课程（修读期至少一学年），毕业后6个月内可申请IANG，不需工作合约即可留港24个月。下面只列可全日制修读的课程${ctx.goal === "id" ? "，学校按学费从低到高排列" : ""}。</div>`;
   if (ctx.goal === "promo" || ctx.goal === "both") banner += `<div class="banner">为了职务升迁：学校名气通常更受用人单位看重，下面的学校按QS世界大学排名从高到低排列（英语已达标的学校排前）。</div>`;
-  if (ctx.et === "none") banner += `<div class="banner warn">还没有英语成绩时，下面只列出不要求英语考试成绩的课程。多数课程需要先考雅思或托福，有成绩后重新筛选可以看到更多。</div>`;
-  if (ctx.engOut) banner += `<div class="banner">另有 ${ctx.engOut} 个课程因为英语成绩未达到官网要求，没有列出。</div>`;
+  if (ctx.et === "none") banner += `<div class="banner warn">还没有英语成绩时，下面只列出不要求英语考试成绩的课程。多数课程需要先考雅思或托福，有成绩后重新筛选可以看到更多。<br><button class="lnk" type="button" data-act="zhnoeng">不想考英语？看 ${noEngZh().length} 个中文授课、不设英语考试要求的课程</button></div>`;
+  if (ctx.engOut) banner += `<div class="banner">另有 ${ctx.engOut} 个课程因为英语成绩未达到官网要求，没有列出。<br><button class="lnk" type="button" data-act="zhnoeng">英语分数不够？看 ${noEngZh().length} 个中文授课、不设英语考试要求的课程</button></div>`;
   const groups = schools.map(s => {
     const rs = bySch[s.key].sort((a, b) => a.score - b.score || a.p._s.order - b.p._s.order || a.p._s.t - b.p._s.t);
     const okN = rs.filter(r => r.eok).length;
@@ -773,7 +802,7 @@ function detailHTML(p) {
   const eng = `<b>${esc(er.txt)}</b>` + (er.sub ? `<br><span class="muted" style="font-size:12px">${esc(er.sub)}</span>` : "") + (er.src ? `<br><span class="muted" style="font-size:12px">${er.src}</span>` : "");
   const moiL = p.moi ? esc(p.moi) + (p.moiAssumed ? '<span class="muted" style="font-size:12px">（课程页未列明，该校课程一般以英文授课）</span>' : "") : '<span class="muted">官网课程页未列明</span>';
   return `<div class="detail">
-    <div><h4>申请截止（非本地申请人）</h4>${rounds}${p.open ? `<div>开放申请：<span class="num">${fmt(p.open)}</span></div>` : ""}</div>
+    <div><h4>申请截止（非本地申请人）</h4>${rounds}${p.open ? `<div>开放申请：<span class="num">${fmt(p.open)}</span></div>` : ""}${p._s.k === "urgent" ? `<button class="lnk" type="button" data-act="ask" data-id="${esc(p.id)}">快截止了、材料还没理清？把情况发给我们</button>` : ""}</div>
     <div><h4>学费（非本地生，全程）</h4>${feeL.join("<br>") || "见官网"}${fxl}</div>
     <div><h4>上课方式</h4>${esc(modeTxt(p))}${p.dur ? " · " + esc(p.dur) : ""}
       ${structTxt(p) ? `<br>${esc(structTxt(p))}` : ""}
@@ -781,7 +810,7 @@ function detailHTML(p) {
       ${p.credits && !p.struct ? '<br><span class="muted" style="font-size:12px">香港硕士一门课多为3学分（港大多为6学分），具体科目见官网课程页</span>' : ""}
       ${p.sched || p.credits ? '<br><span class="muted" style="font-size:12px">摘自官网，每学期课表可能调整</span>' : ""}</div>
     <div><h4>工作经验</h4>${p.exp ? esc(expTxt(p)) + (p.exp.note ? `<br><span class="muted" style="font-size:12px">官网：${esc(p.exp.note)}</span>` : "") : '<span class="muted">本站暂未查到工作经验要求，以官网为准</span>'}</div>
-    <div><h4>入学要求</h4>学士学位或同等学历<br>跨专业申请：${discTxt(p)}<span class="muted" style="font-size:12px">；成绩等其他要求以课程页为准</span><br>英语：${eng}<br>授课语言：${moiL}</div>
+    <div><h4>入学要求</h4>学士学位或同等学历<br>跨专业申请：${discTxt(p)}<span class="muted" style="font-size:12px">；成绩等其他要求以课程页为准</span>${p.anyDisc === false ? `<br><button class="lnk" type="button" data-act="ask" data-id="${esc(p.id)}">本科专业不对口？发给我们确认算不算相关专业</button>` : ""}<br>英语：${eng}${er.k !== "none" && er.k !== "nl" && er.k !== "unk" ? `<br><button class="lnk" type="button" data-act="zhnoeng">没有英语成绩？看不设英语考试要求的课程</button>` : ""}<br>授课语言：${moiL}</div>
     <div><h4>学校</h4>${esc(sc.zh)}${rkTag(sc)}<br><span class="muted">${esc(D.types[sc.type])}</span></div>
     ${p.note ? `<div class="wide"><h4>备注</h4>${esc(p.note)}</div>` : ""}
     <div class="wide" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
@@ -1006,6 +1035,8 @@ document.addEventListener("click", e => {
     else if (a === "lead") leadForm(null);
     else if (a === "goschool") goSchool(b.dataset.k);
     else if (a === "urgentlist") { B.st.clear(); B.st.add("urgent"); sync($("#f-st"), B.st); B.sort = "dl"; $("#sort").value = "dl"; renderList(true); location.hash = "browse"; showView("browse"); toTabs(); }
+    else if (a === "zhnoeng") { window.__sv = "zh"; window.__zf = "noeng"; renderSchools(); location.hash = "schools-zh"; showView("schools"); toTabs(); }
+    else if (a === "nodeg") { $("#m-edu").value = "dz"; runMatch(); location.hash = "match"; showView("match"); $("#mresult").scrollIntoView(); }
     else if (a === "sv") { window.__sv = b.dataset.k; renderSchools(); history.replaceState(null, "", b.dataset.k === "zh" ? "#schools-zh" : "#schools"); }
     else if (a === "zf") { window.__zf = b.dataset.k; renderSchools(); }
     else if (a === "tier") { window.__tier = +b.dataset.k; renderSchools(); const el = $("#cheap"); if (el) el.scrollIntoView(); }
@@ -1025,6 +1056,7 @@ function init(data) {
   D.programmes.forEach((p, i) => { p._i = i; p._s = status(p); p._hay = [p.zh, p.en, p.code, SCH[p.sch].zh, SCH[p.sch].short, SCH[p.sch].en, p.fac, p.cat].join(" ").toLowerCase(); });
   const P = D.programmes, cnt = f => P.filter(f).length;
   $("#intake").textContent = D.intake;
+  $("#hq-n").textContent = noEngZh().length; $("#hq").hidden = false;
   $("#sum-line").innerHTML = `收录 <b>${D.schools.length}</b> 所本地院校的 <b>${P.length}</b> 个授课型硕士课程。学费、英语要求和截止日期逐项对照各校官网，最近核对：<b>${esc(D.verified)}</b>。`;
   if (D.engAudit && $("#audit-line")) $("#audit-line").textContent = `英语要求按课程核对（${D.engAudit.date}）：${D.engAudit.byPage} 个课程已对照课程官网页面，${D.engAudit.byRule} 个按学校公布的统一规则标注，${D.engAudit.pending} 个尚未核实，页面上已注明“待核实”。`;
   const urg = P.filter(p => p._s.k === "urgent" && p.mode.includes("FT")).sort((a, b) => a._s.t - b._s.t);

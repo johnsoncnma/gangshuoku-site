@@ -817,7 +817,37 @@ function renderSchools() {
     <p class="lead">全程学费${range}${rmbTxt}、还能申请的课程共 ${cheap.length} 个，按学费从低到高排列${cheap.length > SHOW ? `，这里先列前 ${SHOW} 个` : ""}。预算指港币学费，不含生活费。另有 ${noFee} 个课程官网还没公布学费，没有算在内。</p>
     <div class="sgroup">${cheap.length ? cheap.slice(0, SHOW).map(p => mrowHTML({ p, flags: [{ k: "n", t: SCH[p.sch].short + " · " + rk(SCH[p.sch]) }] })).join("") : '<div class="empty">这个预算区间目前没有还能申请的课程。</div>'}
     <button class="more-in" type="button" data-act="cheap">在课程查询里按学费筛选（可加专业、学校条件）</button></div></section>`;
-  $("#schools").innerHTML = cheapHTML + Object.keys(D.types).map(t => {
+  const ft = p => (!p.mode || p.mode.includes("FT")) && p.nonLocal !== false;
+  const zhPure = P.filter(p => ft(p) && isZh(p) && !p.moi.includes("英"));
+  const zhBi = P.filter(p => ft(p) && isZh(p) && p.moi.includes("英"));
+  const noEng = p => !!p.er && (p.er.k === "none" || p.er.k === "nl");
+  const sv = window.__sv === "zh" ? "zh" : "all";
+  const navHTML = `<div class="chips" style="margin:0 0 18px" role="group" aria-label="院校一览的两个页面">
+    <button class="chip" type="button" data-act="sv" data-k="all" aria-pressed="${sv === "all"}">院校总览</button>
+    <button class="chip" type="button" data-act="sv" data-k="zh" aria-pressed="${sv === "zh"}">中文授课专业<small>${zhPure.length}</small></button></div>`;
+  if (sv === "zh") {
+    const zf = ["all", "noeng", "bi"].includes(window.__zf) ? window.__zf : "all";
+    const list = zf === "bi" ? zhBi : zf === "noeng" ? zhPure.filter(noEng) : zhPure;
+    const groups = D.schools.map(s => ({ s, ps: list.filter(p => p.sch === s.key).sort((a, b) => (a._s.k === "closed") - (b._s.k === "closed")) })).filter(g => g.ps.length);
+    const openN = list.filter(p => p._s.k !== "closed").length;
+    const lead = zf === "bi"
+      ? `课程官网写明用中文和英文两种语言授课的全日制课程，共 ${list.length} 个，其中 ${openN} 个还能申请。这类课程大多仍要求英语成绩，具体分数看每个课程的标注。`
+      : `课程官网写明以中文、普通话或粤语授课的全日制课程，共 ${zhPure.length} 个，分布在 ${new Set(zhPure.map(p => p.sch)).size} 所院校；其中 ${zhPure.filter(noEng).length} 个官网没有设英语考试要求。${zf === "noeng" ? `下面只列这 ${list.length} 个，` : "下面"}按院校排列，${openN} 个还能申请。`;
+    const eflag = p => !p.er ? { k: "q", t: "英语要求待核实" } : noEng(p) ? { k: "ok", t: "不设英语考试要求" } : { k: "n", t: "需英语成绩" };
+    $("#schools").innerHTML = navHTML + `<section class="tgroup" id="zhlist"><h2>中文授课专业</h2>
+      <div class="chips" style="margin:6px 0 10px">${[["all", "全部中文授课", zhPure.length], ["noeng", "不设英语考试要求", zhPure.filter(noEng).length], ["bi", "中英双语授课", zhBi.length]].map(c => `<button class="chip" type="button" data-act="zf" data-k="${c[0]}" aria-pressed="${zf === c[0]}">${c[1]}<small>${c[2]}</small></button>`).join("")}</div>
+      <p class="lead">${lead}授课语言只按各课程自己的官网页面标注，官网没有写明的课程不列在这里。</p>
+      ${groups.length ? groups.map(g => {
+        const fees = g.ps.map(p => p.fee).filter(Boolean);
+        return `<article class="sgroup"><header><div><h3>${esc(g.s.zh)}${rkTag(g.s)}<span class="typetag">${esc(D.types[g.s.type] || "")}</span></h3>
+          <div class="muted" style="font-size:12.5px">${g.ps.length} 个课程${fees.length ? ` · 学费 ${Math.min(...fees) === Math.max(...fees) ? wan(fees[0]) : wan(Math.min(...fees)) + "–" + wan(Math.max(...fees))}港币` : ""}</div></div>
+          <button class="btn" type="button" data-act="goschool" data-k="${esc(g.s.key)}">在课程查询里看</button></header>
+          ${g.ps.map(p => mrowHTML({ p, flags: [eflag(p)].concat(p.anyDisc === true ? [{ k: "ok", t: "不限本科专业" }] : []) })).join("")}</article>`;
+      }).join("") : '<div class="empty">这个条件下目前没有课程。</div>'}</section>`;
+    $("#coverage").textContent = D.coverage || "";
+    return;
+  }
+  $("#schools").innerHTML = navHTML + cheapHTML + Object.keys(D.types).map(t => {
     const ss = D.schools.filter(s => s.type === t);
     return `<section class="tgroup"><h2>${esc(D.types[t])}</h2><p class="lead">${LEAD[t] || ""}</p><div class="cards">${ss.map(s => {
       const ps = P.filter(p => p.sch === s.key), fees = ps.map(p => p.fee).filter(Boolean);
@@ -953,6 +983,7 @@ function chips(el, items, set, cb) {
 }
 function sync(el, set) { el.querySelectorAll(".chip").forEach(b => b.setAttribute("aria-pressed", set.has(b.dataset.k))); }
 function showView(v) {
+  if (v === "schools-zh") { v = "schools"; if (window.__sv !== "zh") { window.__sv = "zh"; if (D && D.programmes) renderSchools(); } }
   if (!["match", "browse", "schools"].includes(v)) v = "match";
   document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.view === v));
   document.querySelectorAll(".view").forEach(s => s.hidden = s.id !== "v-" + v);
@@ -973,8 +1004,10 @@ document.addEventListener("click", e => {
     else if (a === "lead") leadForm(null);
     else if (a === "goschool") goSchool(b.dataset.k);
     else if (a === "urgentlist") { B.st.clear(); B.st.add("urgent"); sync($("#f-st"), B.st); B.sort = "dl"; $("#sort").value = "dl"; renderList(true); location.hash = "browse"; showView("browse"); toTabs(); }
+    else if (a === "sv") { window.__sv = b.dataset.k; renderSchools(); history.replaceState(null, "", b.dataset.k === "zh" ? "#schools-zh" : "#schools"); }
+    else if (a === "zf") { window.__zf = b.dataset.k; renderSchools(); }
     else if (a === "tier") { window.__tier = +b.dataset.k; renderSchools(); const el = $("#cheap"); if (el) el.scrollIntoView(); }
-    else if (a === "cheaplist") { location.hash = "schools"; showView("schools"); setTimeout(() => { const el = $("#cheap"); if (el) el.scrollIntoView(); }, 50); }
+    else if (a === "cheaplist") { if (window.__sv === "zh") { window.__sv = "all"; renderSchools(); } location.hash = "schools"; showView("schools"); setTimeout(() => { const el = $("#cheap"); if (el) el.scrollIntoView(); }, 50); }
     else if (a === "cheap") { const fv = [150000, 200000, 300000, 400000, 0][window.__tier || 0]; B.fee = fv; $("#f-fee").value = String(fv); B.sort = "fee-asc"; const so = $("#sort"); if (so) so.value = "fee-asc"; renderList(true); location.hash = "browse"; showView("browse"); toTabs(); }
     else if (a === "expand") { M.open = M.open || new Set(); M.open.has(b.dataset.k) ? M.open.delete(b.dataset.k) : M.open.add(b.dataset.k); runMatch(); }
     return;
